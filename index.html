@@ -1459,6 +1459,271 @@
       z-index: 1;
     }
 
+    /* ===== PROCESS: SCROLL STACK ===== */
+    .process-stack {
+      position: relative;
+      width: 100%;
+      margin-top: 56px;
+    }
+
+    .scroll-stack__inner {
+      position: relative;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .scroll-stack__slot {
+      position: sticky;
+    }
+
+    .scroll-stack-card {
+      position: relative;
+      transform-origin: 50% 0;
+      will-change: transform;
+    }
+
+    .scroll-stack-card__shade {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: #000;
+      opacity: var(--scroll-stack-dim, 0);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .step-card {
+      min-height: 320px;
+      padding: 36px 40px 32px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(520px circle at 100% 0%, var(--accent-soft), transparent 55%),
+        var(--card);
+      border: 1px solid var(--border-strong);
+      box-shadow:
+        0 -16px 40px -20px rgba(0, 0, 0, 0.45),
+        0 28px 56px -28px rgba(0, 0, 0, 0.5);
+      transition: border-color 300ms var(--ease), box-shadow 300ms var(--ease);
+    }
+
+    /* Lime edge on the step currently on top of the pile */
+    .step-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 300ms var(--ease);
+    }
+
+    .step-card.is-active {
+      border-color: var(--spot-edge);
+      box-shadow:
+        0 0 0 1px var(--accent-soft),
+        0 -16px 40px -20px rgba(0, 0, 0, 0.45),
+        0 28px 64px -24px rgba(0, 0, 0, 0.55),
+        0 0 80px -30px var(--accent);
+    }
+
+    .step-card.is-active::before {
+      opacity: 1;
+    }
+
+    .step-bignum {
+      position: absolute;
+      right: 28px;
+      bottom: -36px;
+      font-family: var(--font-mono);
+      font-size: 200px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border-strong);
+      pointer-events: none;
+      user-select: none;
+      transition: -webkit-text-stroke-color 400ms var(--ease), transform 600ms var(--ease);
+    }
+
+    .step-card.is-active .step-bignum {
+      -webkit-text-stroke-color: var(--spot-edge);
+      transform: translateY(-8px);
+    }
+
+    .step-head,
+    .step-title,
+    .step-desc,
+    .step-chips,
+    .step-bar {
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .step-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: var(--raised);
+      border: 1px solid var(--border);
+      color: var(--accent-text);
+      font-size: 18px;
+      transition: background-color 300ms var(--ease), color 300ms var(--ease), transform 400ms var(--ease);
+    }
+
+    .step-card.is-active .step-icon {
+      background: var(--accent);
+      color: var(--accent-ink);
+      transform: rotate(-6deg) scale(1.05);
+    }
+
+    .step-kicker {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .step-kicker span {
+      color: var(--muted);
+    }
+
+    .step-time {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--raised);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-2);
+    }
+
+    .step-time i {
+      font-size: 11px;
+      color: var(--accent-text);
+    }
+
+    .step-title {
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .step-desc {
+      max-width: 34rem;
+      font-size: 16px;
+      color: var(--text-2);
+      margin-bottom: 24px;
+    }
+
+    .step-chips {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .step-chips li {
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .step-chips li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-dot);
+    }
+
+    .step-bar {
+      height: 3px;
+      max-width: 34rem;
+      border-radius: 3px;
+      background: var(--raised);
+      overflow: hidden;
+    }
+
+    .step-bar span {
+      display: block;
+      height: 100%;
+      width: calc(var(--step) / 6 * 100%);
+      border-radius: inherit;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 900ms var(--ease);
+    }
+
+    .step-card.is-active .step-bar span,
+    .step-card.is-seen .step-bar span {
+      transform: scaleX(1);
+    }
+
+    @media (max-width: 640px) {
+      .step-card {
+        min-height: 300px;
+        padding: 24px 20px;
+        border-radius: 20px;
+      }
+
+      .step-bignum {
+        font-size: 120px;
+        right: 12px;
+        bottom: -20px;
+      }
+
+      .step-time {
+        margin-left: 0;
+      }
+
+      .step-head {
+        margin-bottom: 20px;
+      }
+
+      .step-desc {
+        font-size: 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .step-card,
+      .step-bignum,
+      .step-icon,
+      .step-bar span {
+        transition: none;
+      }
+    }
+
     /* ===== FOOTER ===== */
     footer {
       max-width: 1200px;
@@ -1877,45 +2142,113 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- PROCESS (React Bits Scroll Stack) -->
   <section id="process">
     <div class="section-inner">
       <div class="section-label">How it works</div>
       <h2 class="section-title">From first call to launch</h2>
-      <p class="section-sub">No surprises: you know the price, the timeline and what you're getting before any work starts.</p>
+      <p class="section-sub">No surprises: you know the price, the timeline and what you're getting before any work starts. Scroll through the six steps.</p>
 
-      <ol class="process-list reveal stagger">
-        <li class="process-step reveal-item" style="--i:0">
-          <div class="process-num">01</div>
-          <div class="process-title">Free call</div>
-          <p class="process-desc">15 minutes to understand your business and what you need.</p>
-        </li>
-        <li class="process-step reveal-item" style="--i:1">
-          <div class="process-num">02</div>
-          <div class="process-title">Clear proposal</div>
-          <p class="process-desc">Fixed price, scope and timeline in writing.</p>
-        </li>
-        <li class="process-step reveal-item" style="--i:2">
-          <div class="process-num">03</div>
-          <div class="process-title">Design preview</div>
-          <p class="process-desc">You see and approve the design before I build.</p>
-        </li>
-        <li class="process-step reveal-item" style="--i:3">
-          <div class="process-num">04</div>
-          <div class="process-title">Build</div>
-          <p class="process-desc">Weekly updates, so you always know where things stand.</p>
-        </li>
-        <li class="process-step reveal-item" style="--i:4">
-          <div class="process-num">05</div>
-          <div class="process-title">Launch</div>
-          <p class="process-desc">Domain, hosting and go-live handled for you.</p>
-        </li>
-        <li class="process-step reveal-item" style="--i:5">
-          <div class="process-num">06</div>
-          <div class="process-title">Ongoing support</div>
-          <p class="process-desc">Fixes and updates after launch, whenever you need them.</p>
-        </li>
-      </ol>
+      <div class="scroll-stack process-stack">
+        <div class="scroll-stack__inner">
+          <article class="scroll-stack-card step-card" style="--step:1">
+            <span class="step-bignum" aria-hidden="true">01</span>
+            <div class="step-head">
+              <span class="step-icon"><i class="fa fa-phone"></i></span>
+              <span class="step-kicker">Step 01 <span>/ 06</span></span>
+              <span class="step-time"><i class="fa fa-clock"></i>15 minutes</span>
+            </div>
+            <h3 class="step-title">Free call</h3>
+            <p class="step-desc">We talk about your business, your customers and what isn't working today. No jargon, no pressure.</p>
+            <ul class="step-chips">
+              <li>Your goals</li>
+              <li>Current problems</li>
+              <li>Rough budget</li>
+            </ul>
+            <div class="step-bar" aria-hidden="true"><span></span></div>
+          </article>
+          <article class="scroll-stack-card step-card" style="--step:2">
+            <span class="step-bignum" aria-hidden="true">02</span>
+            <div class="step-head">
+              <span class="step-icon"><i class="fa fa-file-signature"></i></span>
+              <span class="step-kicker">Step 02 <span>/ 06</span></span>
+              <span class="step-time"><i class="fa fa-clock"></i>Within 24 hours</span>
+            </div>
+            <h3 class="step-title">Clear proposal</h3>
+            <p class="step-desc">You get a written proposal with a fixed price, the exact scope and a delivery date. You know the cost before anything starts.</p>
+            <ul class="step-chips">
+              <li>Fixed price</li>
+              <li>Scope in writing</li>
+              <li>Delivery date</li>
+            </ul>
+            <div class="step-bar" aria-hidden="true"><span></span></div>
+          </article>
+          <article class="scroll-stack-card step-card" style="--step:3">
+            <span class="step-bignum" aria-hidden="true">03</span>
+            <div class="step-head">
+              <span class="step-icon"><i class="fa fa-pen-ruler"></i></span>
+              <span class="step-kicker">Step 03 <span>/ 06</span></span>
+              <span class="step-time"><i class="fa fa-clock"></i>Before any code</span>
+            </div>
+            <h3 class="step-title">Design preview</h3>
+            <p class="step-desc">I design the key screens first, so you see exactly how it will look and can ask for changes before I build.</p>
+            <ul class="step-chips">
+              <li>Mobile + desktop</li>
+              <li>Your branding</li>
+              <li>Changes before build</li>
+            </ul>
+            <div class="step-bar" aria-hidden="true"><span></span></div>
+          </article>
+          <article class="scroll-stack-card step-card" style="--step:4">
+            <span class="step-bignum" aria-hidden="true">04</span>
+            <div class="step-head">
+              <span class="step-icon"><i class="fa fa-code"></i></span>
+              <span class="step-kicker">Step 04 <span>/ 06</span></span>
+              <span class="step-time"><i class="fa fa-clock"></i>Weekly updates</span>
+            </div>
+            <h3 class="step-title">Build</h3>
+            <p class="step-desc">I build it with a progress update every week and a live preview link, so you're never left wondering where things stand.</p>
+            <ul class="step-chips">
+              <li>Live preview link</li>
+              <li>Weekly check-ins</li>
+              <li>Clean, secure code</li>
+            </ul>
+            <div class="step-bar" aria-hidden="true"><span></span></div>
+          </article>
+          <article class="scroll-stack-card step-card" style="--step:5">
+            <span class="step-bignum" aria-hidden="true">05</span>
+            <div class="step-head">
+              <span class="step-icon"><i class="fa fa-rocket"></i></span>
+              <span class="step-kicker">Step 05 <span>/ 06</span></span>
+              <span class="step-time"><i class="fa fa-clock"></i>Go-live day</span>
+            </div>
+            <h3 class="step-title">Launch</h3>
+            <p class="step-desc">I connect your domain, set up hosting and launch. Then I walk you through how to use and update everything.</p>
+            <ul class="step-chips">
+              <li>Domain &amp; hosting</li>
+              <li>Speed &amp; SEO basics</li>
+              <li>Handover walkthrough</li>
+            </ul>
+            <div class="step-bar" aria-hidden="true"><span></span></div>
+          </article>
+          <article class="scroll-stack-card step-card" style="--step:6">
+            <span class="step-bignum" aria-hidden="true">06</span>
+            <div class="step-head">
+              <span class="step-icon"><i class="fa fa-life-ring"></i></span>
+              <span class="step-kicker">Step 06 <span>/ 06</span></span>
+              <span class="step-time"><i class="fa fa-clock"></i>After launch</span>
+            </div>
+            <h3 class="step-title">Ongoing support</h3>
+            <p class="step-desc">I don't disappear after launch. Fixes, updates and new features whenever your business needs them.</p>
+            <ul class="step-chips">
+              <li>Bug fixes</li>
+              <li>Content updates</li>
+              <li>Monthly care plan</li>
+            </ul>
+            <div class="step-bar" aria-hidden="true"><span></span></div>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2538,6 +2871,26 @@
         quality: small ? 'low' : 'high'
       });
       new MutationObserver(() => fluid.setTheme(root.dataset.theme)).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    })();
+  </script>
+  <script src="scroll-stack.js"></script>
+  <script>
+    /* How it works: steps stack up as the page scrolls */
+    (function () {
+      const el = document.querySelector('#process .scroll-stack');
+      if (!el || !window.ScrollStack) return;
+      const small = window.matchMedia('(max-width: 640px)').matches;
+      window.ScrollStack.mount(el, {
+        itemDistance: small ? 80 : 120,
+        itemStackDistance: small ? 16 : 26,
+        stackPosition: small ? '12%' : '16%',
+        itemScale: 0.04,
+        baseScale: 0.84,
+        dimAmount: 0.22,
+        blurAmount: small ? 0 : 0.6,
+        tiltAmount: 6,
+        holdDistance: 160
+      });
     })();
   </script>
 </body>
