@@ -1435,6 +1435,30 @@
       transform: scale(1.06);
     }
 
+    /* Splash Cursor fluid behind the hero content */
+    #hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .splash-cursor {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .splash-cursor__canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #hero .hero-grid {
+      position: relative;
+      z-index: 1;
+    }
+
     /* ===== FOOTER ===== */
     footer {
       max-width: 1200px;
@@ -1760,6 +1784,7 @@
 
   <!-- HERO -->
   <section id="hero">
+    <div class="splash-cursor" data-contained aria-hidden="true"><canvas class="splash-cursor__canvas"></canvas></div>
     <div class="hero-grid">
       <div class="hero-text">
         <div class="status intro" style="--i:0"><span class="live-dot"></span>Available for new projects</div>
@@ -2497,6 +2522,22 @@
         try { saved = localStorage.getItem('theme'); } catch (err) {}
         if (!saved) apply(e.matches ? 'light' : 'dark', true);
       });
+    })();
+  </script>
+  <script src="splash-cursor.js"></script>
+  <script>
+    /* Hero background: fluid follows the cursor (skipped for reduced motion) */
+    (function () {
+      const el = document.querySelector('#hero .splash-cursor');
+      if (!el || !window.SplashCursor) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.remove(); return; }
+      const root = document.documentElement;
+      const small = window.matchMedia('(max-width: 640px)').matches;
+      const fluid = window.SplashCursor.mount(el, {
+        theme: root.dataset.theme === 'light' ? 'light' : 'dark',
+        quality: small ? 'low' : 'high'
+      });
+      new MutationObserver(() => fluid.setTheme(root.dataset.theme)).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
     })();
   </script>
 </body>
