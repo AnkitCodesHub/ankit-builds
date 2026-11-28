@@ -1,2898 +1,727 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en-IN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ankit Pandey — Websites & Apps for Businesses</title>
-  <meta name="description" content="I build websites and apps that help businesses get more customers. Full-stack web (MERN) and Android (Kotlin) developer: design, build, launch and maintenance from one person." />
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23141415'/><text x='16' y='22' font-family='system-ui,sans-serif' font-size='16' font-weight='500' fill='%23ededed' text-anchor='middle'>AP</text></svg>">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script>
-    (function () {
-      var saved = null;
-      try { saved = localStorage.getItem('theme'); } catch (e) {}
-      var light = window.matchMedia('(prefers-color-scheme: light)').matches;
-      document.documentElement.dataset.theme = saved || (light ? 'light' : 'dark');
-    })();
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ankit Builds | Website Development &amp; Social Media for Businesses in India</title>
+  <meta name="description" content="Ankit Builds designs and develops professional business websites and manages social media for restaurants, hotels, coaching institutes, clinics and local businesses. Websites from ₹4,999.">
+  <link rel="canonical" href="https://ankitcodeshub.github.io/ankit-builds/">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ankit Builds">
+  <meta property="og:title" content="Ankit Builds | Websites &amp; Social Media for Your Business">
+  <meta property="og:description" content="Professional business websites from ₹4,999, social media management and complete digital presence for businesses in India.">
+  <meta property="og:url" content="https://ankitcodeshub.github.io/ankit-builds/">
+  <meta property="og:image" content="https://ankitcodeshub.github.io/ankit-builds/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Ankit Builds",
+    "url": "https://ankitcodeshub.github.io/ankit-builds/",
+    "image": "https://ankitcodeshub.github.io/ankit-builds/assets/img/og.png",
+    "email": "ankitraj5309@gmail.com",
+    "telephone": "+91-6205323586",
+    "description": "Independent digital studio offering business website development, social media management and complete digital presence services.",
+    "founder": { "@type": "Person", "name": "Ankit Pandey" },
+    "areaServed": { "@type": "Country", "name": "India" },
+    "priceRange": "₹4,999+",
+    "sameAs": ["https://www.linkedin.com/in/ankitraj-pandey", "https://github.com/AnkitCodesHub"]
+  }
   </script>
-  <style>
-    /* Design tokens. Redesign pass based on unslop by Damir Sokolovsky (@heydamir), CC BY 4.0 */
-    :root {
-      --bg-deep: #0f0f10;
-      --bg: #141415;
-      --card: #19191b;
-      --raised: #232325;
-      --border: rgba(237, 237, 237, 0.08);
-      --border-strong: rgba(237, 237, 237, 0.14);
-      --text: #ededed;
-      --text-2: #a1a1a6;
-      --muted: #85858b;
-      --accent: #c6f24e;
-      --accent-hover: #d4f76e;
-      --accent-text: #c6f24e;
-      --accent-dot: #c6f24e;
-      --accent-soft: rgba(198, 242, 78, 0.16);
-      --accent-ink: #1b2408;
-      --negative: #e5484d;
-      --on-primary: #141415;
-      --primary-hover: #ffffff;
-      --raised-hover: var(--raised-hover);
-      --nav-bg: rgba(20, 20, 21, 0.92);
-      --highlight: rgba(255, 255, 255, 0.06);
-      --bezel: #2a2a2d;
-      --frame-border: rgba(255, 255, 255, 0.1);
-      --media-shadow: var(--media-shadow);
-      --float-shadow: var(--float-shadow);
-      --pop-shadow: var(--pop-shadow);
-      --dot-gray: #3a3a3d;
-      --placeholder: #6a6a70;
-      --spot-fill: rgba(237, 237, 237, 0.06);
-      --spot-edge: rgba(198, 242, 78, 0.38);
-      color-scheme: dark;
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --font-body: 'Geist', system-ui, -apple-system, sans-serif;
-      --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-
-    /* Light theme: same roles, graphite light ramp */
-    :root[data-theme="light"] {
-      --bg-deep: #f4f4f5;
-      --bg: #fafafa;
-      --card: #ffffff;
-      --raised: #f4f4f5;
-      --border: rgba(23, 23, 23, 0.08);
-      --border-strong: rgba(23, 23, 23, 0.14);
-      --text: #171717;
-      --text-2: #525252;
-      --muted: #737373;
-      --accent: #b8e840;
-      --accent-hover: #a9dc2c;
-      --accent-text: #4d7c0f;
-      --accent-dot: #65a30d;
-      --accent-soft: rgba(101, 163, 13, 0.18);
-      --accent-ink: #1b2408;
-      --negative: #dc2626;
-      --on-primary: #fafafa;
-      --primary-hover: #000000;
-      --raised-hover: #ebebed;
-      --nav-bg: rgba(250, 250, 250, 0.92);
-      --highlight: rgba(255, 255, 255, 0.8);
-      --bezel: #1c1c1e;
-      --frame-border: rgba(23, 23, 23, 0.12);
-      --media-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      --float-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      --pop-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-      --dot-gray: #d4d4d8;
-      --placeholder: #a1a1aa;
-      --spot-fill: rgba(23, 23, 23, 0.035);
-      --spot-edge: rgba(101, 163, 13, 0.4);
-      color-scheme: light;
-    }
-
-    /* Colors fade briefly while switching themes */
-    .theme-switching,
-    .theme-switching * {
-      transition: background-color 250ms var(--ease), color 250ms var(--ease), border-color 250ms var(--ease), fill 250ms var(--ease) !important;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-size: 15px;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible {
-      outline: 2px solid var(--accent-text);
-      outline-offset: 2px;
-    }
-
-    /* Signature: live status dot */
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-dot);
-      box-shadow: 0 0 0 3px var(--accent-soft);
-      flex-shrink: 0;
-    }
-
-    .lightbox {
-      display: none;
-    }
-
-    ::selection {
-      background: var(--accent);
-      color: var(--accent-ink);
-    }
-
-    /* ===== NAV ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      height: 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 max(24px, calc((100vw - 1152px) / 2));
-      background: var(--nav-bg);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-2);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 150ms var(--ease);
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-links a.nav-cta {
-      display: inline-flex;
-      align-items: center;
-      height: 36px;
-      padding: 0 16px;
-      border-radius: 8px;
-      background: var(--raised);
-      border: 1px solid var(--border);
-      color: var(--text);
-      transition: background-color 150ms var(--ease);
-    }
-
-    .nav-links a.nav-cta:hover {
-      background: var(--raised-hover);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .theme-toggle {
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-2);
-      cursor: pointer;
-      transition: color 150ms var(--ease), background-color 150ms var(--ease);
-    }
-
-    .theme-toggle:hover {
-      color: var(--text);
-      background: var(--raised);
-    }
-
-    .theme-toggle svg {
-      width: 16px;
-      height: 16px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .theme-toggle .icon-moon,
-    :root[data-theme="light"] .theme-toggle .icon-sun {
-      display: none;
-    }
-
-    :root[data-theme="light"] .theme-toggle .icon-moon {
-      display: block;
-    }
-
-    .hamburger {
-      display: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: transparent;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .hamburger span {
-      width: 16px;
-      height: 1.5px;
-      background: var(--text);
-    }
-
-    /* ===== HERO ===== */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 128px 24px 96px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 64px;
-      align-items: center;
-      max-width: 1152px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-2);
-      margin-bottom: 32px;
-    }
-
-    .hero-name {
-      font-size: clamp(44px, 7vw, 72px);
-      font-weight: 500;
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-
-    /* Decrypted Text (ported from React Bits) */
-    .dt-word {
-      white-space: nowrap;
-    }
-
-    .dt-cell {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dt-ghost {
-      visibility: hidden;
-    }
-
-    .dt-glyph {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--text);
-      transition: color 700ms var(--ease), opacity 600ms var(--ease);
-    }
-
-    .dt-glyph.is-hidden {
-      color: var(--muted);
-    }
-
-    .hero-title {
-      font-size: 20px;
-      color: var(--text);
-      margin-bottom: 16px;
-      min-height: 1.6em;
-    }
-
-    /* Typing cursor next to the hero title */
-    .type-cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1.1em;
-      margin-left: 3px;
-      vertical-align: -0.15em;
-      background: var(--accent-dot);
-      animation: cursor-blink 1s steps(1) infinite;
-    }
-
-    .type-cursor.is-typing {
-      animation: none;
-    }
-
-    @keyframes cursor-blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .type-cursor {
-        display: none;
-      }
-    }
-
-    .hero-tagline {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--text-2);
-      max-width: 34rem;
-      margin-bottom: 40px;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      height: 44px;
-      padding: 0 20px;
-      border-radius: 10px;
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 150ms var(--ease), transform 120ms var(--ease);
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--accent-ink);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
-    .btn-ghost {
-      background: var(--raised);
-      color: var(--text);
-      border: 1px solid var(--border);
-      box-shadow: inset 0 1px 0 var(--highlight);
-    }
-
-    .btn-ghost:hover {
-      background: var(--raised-hover);
-    }
-
-    .hero-photo-wrap {
-      justify-self: end;
-      width: 100%;
-      max-width: 400px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 8px;
-    }
-
-    .hero-photo {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 12px;
-      background: var(--raised);
-    }
-
-    .hero-caption {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 12px 8px 4px;
-      white-space: nowrap;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* ===== SECTIONS ===== */
-    section {
-      padding: 96px 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    #hero {
-      border-top: none;
-    }
-
-    .section-inner {
-      max-width: 1152px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--accent-text);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(28px, 4vw, 36px);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-    }
-
-    .section-sub {
-      color: var(--text-2);
-      max-width: 36rem;
-      font-size: 16px;
-    }
-
-    /* ===== ABOUT ===== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 64px;
-      align-items: center;
-      margin-top: 48px;
-    }
-
-    .about-img-wrap {
-      position: relative;
-    }
-
-    .about-img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    .about-sticker {
-      position: absolute;
-      right: -8px;
-      bottom: 8px;
-      background: var(--card);
-      border: 1px solid var(--border-strong);
-      border-radius: 12px;
-      padding: 16px 20px;
-    }
-
-    .about-sticker .num {
-      font-size: 32px;
-      font-weight: 500;
-      line-height: 1;
-      color: var(--accent-text);
-      font-variant-numeric: tabular-nums;
-      margin-bottom: 8px;
-    }
-
-    .about-sticker .lbl {
-      font-size: 13px;
-      color: var(--text-2);
-    }
-
-    .about-bio {
-      font-size: 17px;
-      color: var(--text-2);
-      line-height: 1.7;
-      max-width: 36rem;
-    }
-
-    .about-bio p {
-      margin-bottom: 16px;
-    }
-
-    .about-bio p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-bio strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .interests {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
-
-    .interest-tag {
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 12px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--text-2);
-    }
-
-    /* ===== PROJECTS ===== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: border-color 150ms var(--ease);
-    }
-
-    .project-card:hover {
-      border-color: var(--border-strong);
-    }
-
-    .project-img {
-      position: relative;
-      height: 280px;
-      overflow: hidden;
-      background: var(--bg-deep);
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* Phone frames for the Android apps */
-    .phone-stage {
-      display: flex;
-      justify-content: center;
-    }
-
-    .phone {
-      position: absolute;
-      top: 32px;
-      width: 200px;
-      padding: 6px;
-      background: var(--bezel);
-      border: 1px solid var(--frame-border);
-      border-radius: 32px;
-      box-shadow: var(--media-shadow), inset 0 1px 0 var(--highlight);
-    }
-
-    .phone img {
-      display: block;
-      width: 100%;
-      border-radius: 26px;
-    }
-
-    /* Browser frame for the web project */
-    .site-stage {
-      padding: 32px 32px 0;
-    }
-
-    .browser {
-      height: 100%;
-      background: var(--raised);
-      border: 1px solid var(--frame-border);
-      border-bottom: none;
-      border-radius: 12px 12px 0 0;
-      overflow: hidden;
-      box-shadow: var(--media-shadow);
-    }
-
-    .browser-bar {
-      height: 32px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .browser-bar span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--dot-gray);
-    }
-
-    .browser-bar em {
-      font-style: normal;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--muted);
-      margin-left: 12px;
-    }
-
-    .browser-view {
-      height: calc(100% - 32px);
-      overflow: hidden;
-    }
-
-    .browser-view img {
-      display: block;
-      width: 100%;
-      margin-top: -7.6%;
-    }
-
-    /* Vault preview for PassOP */
-    .vault-stage {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-    }
-
-    .vault {
-      width: 100%;
-      max-width: 340px;
-      background: var(--card);
-      border: 1px solid var(--frame-border);
-      border-radius: 12px;
-      padding: 8px;
-      box-shadow: var(--media-shadow);
-    }
-
-    .vault-head {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px 12px;
-      font-size: 13px;
-      color: var(--text-2);
-    }
-
-    .vault-head i {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .vault-row {
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-      border-radius: 6px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text);
-    }
-
-    .vault-row:nth-child(2) {
-      background: var(--raised);
-    }
-
-    .vault-row .mask {
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-
-    .project-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 24px;
-    }
-
-    .project-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .project-tag {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .project-state {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-2);
-    }
-
-    .project-state .live-dot {
-      width: 6px;
-      height: 6px;
-    }
-
-    .project-name {
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.35;
-      margin-bottom: 8px;
-    }
-
-    .project-desc {
-      color: var(--text-2);
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 8px;
-      margin-top: auto;
-    }
-
-    .btn-sm {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      height: 36px;
-      padding: 0 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background-color 150ms var(--ease);
-    }
-
-    .btn-sm i {
-      font-size: 12px;
-    }
-
-    .btn-sm-fill {
-      background: var(--text);
-      color: var(--on-primary);
-    }
-
-    .btn-sm-fill:hover {
-      background: var(--primary-hover);
-    }
-
-    .btn-sm-ghost {
-      background: var(--raised);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-sm-ghost i {
-      color: var(--text-2);
-    }
-
-    .btn-sm-ghost:hover {
-      background: var(--raised-hover);
-    }
-
-    /* ===== SKILLS ===== */
-    .skills-table {
-      margin-top: 48px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--card);
-      overflow: hidden;
-    }
-
-    .skill-row {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      align-items: center;
-      gap: 32px;
-      padding: 16px 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-row:last-child {
-      border-bottom: none;
-    }
-
-    .skill-category {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-tag {
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 10px;
-      border-radius: 6px;
-      background: var(--raised);
-      font-size: 13px;
-      color: var(--text);
-    }
-
-    /* ===== CONTACT ===== */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 64px;
-      margin-top: 48px;
-      align-items: start;
-    }
-
-    .contact-info-title {
-      font-size: 20px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .contact-info-text {
-      color: var(--text-2);
-      margin-bottom: 32px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      height: 56px;
-      padding: 0 16px;
-      text-decoration: none;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-      transition: background-color 150ms var(--ease);
-    }
-
-    .contact-link:last-child {
-      border-bottom: none;
-    }
-
-    .contact-link:hover {
-      background: var(--card);
-    }
-
-    .cl-icon {
-      width: 18px;
-      text-align: center;
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    .cl-text {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      flex: 1;
-      min-width: 0;
-      font-size: 14px;
-    }
-
-    .cl-text strong {
-      font-weight: 500;
-    }
-
-    .cl-text span {
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .form-group label {
-      font-size: 13px;
-      color: var(--text-2);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      background: var(--bg);
-      border: 1px solid var(--border-strong);
-      border-radius: 8px;
-      padding: 10px 12px;
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 14px;
-      outline: none;
-      resize: none;
-      transition: border-color 150ms var(--ease);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--placeholder);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent-text);
-    }
-
-    .form-group textarea {
-      height: 128px;
-    }
-
-    .form-submit {
-      align-self: flex-start;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      height: 44px;
-      padding: 0 20px;
-      background: var(--accent);
-      color: var(--accent-ink);
-      border: none;
-      border-radius: 10px;
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 150ms var(--ease), transform 120ms var(--ease);
-    }
-
-    .form-submit:hover {
-      background: var(--accent-hover);
-    }
-
-    .form-submit:active {
-      transform: scale(0.98);
-    }
-
-    .form-submit.is-sent {
-      background: var(--accent);
-      color: var(--accent-ink);
-    }
-
-    .form-submit.is-error {
-      background: var(--negative);
-      color: #ffffff;
-      font-size: 13px;
-    }
-
-    /* ===== WORK WITH ME ===== */
-    .hero-headline {
-      font-size: clamp(36px, 5.2vw, 56px);
-      font-weight: 500;
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-      margin-bottom: 20px;
-    }
-
-    .hero-headline em {
-      font-style: normal;
-      color: var(--accent-text);
-    }
-
-    .hero-recruiter {
-      margin-top: 24px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .hero-recruiter a {
-      color: var(--text-2);
-      text-underline-offset: 3px;
-    }
-
-    .hero-recruiter a:hover {
-      color: var(--text);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 48px;
-    }
-
-    .service-card {
-      display: flex;
-      flex-direction: column;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      transition: border-color 150ms var(--ease);
-    }
-
-    .service-card:hover {
-      border-color: var(--border-strong);
-    }
-
-    .service-icon {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      background: var(--accent-soft);
-      color: var(--accent-text);
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .service-name {
-      font-size: 17px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .service-desc {
-      color: var(--text-2);
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-
-    .service-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 24px;
-      font-size: 13px;
-      color: var(--text-2);
-    }
-
-    .service-list li {
-      display: flex;
-      gap: 8px;
-    }
-
-    .service-list li::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      margin-top: 8px;
-      border-radius: 50%;
-      background: var(--accent-dot);
-      flex-shrink: 0;
-    }
-
-    .service-foot {
-      margin-top: auto;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .service-price {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text);
-    }
-
-    .service-price span {
-      color: var(--muted);
-    }
-
-    .service-foot .btn-sm {
-      justify-content: center;
-    }
-
-    .process-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-      margin-top: 48px;
-    }
-
-    .process-step {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px 16px;
-    }
-
-    .process-num {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--accent-text);
-      margin-bottom: 12px;
-    }
-
-    .process-title {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .process-desc {
-      font-size: 13px;
-      color: var(--text-2);
-      line-height: 1.5;
-    }
-
-    .project-label {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-text);
-      margin-bottom: 8px;
-    }
-
-    .case-points {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin: -8px 0 24px;
-      font-size: 14px;
-      color: var(--text-2);
-    }
-
-    .case-points strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .offer-card {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 48px;
-      align-items: center;
-      background: var(--card);
-      border: 1px solid var(--border-strong);
-      border-radius: 20px;
-      padding: 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .offer-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(600px circle at 0% 0%, var(--accent-soft), transparent 60%);
-      pointer-events: none;
-    }
-
-    .offer-card > * {
-      position: relative;
-    }
-
-    .offer-title {
-      font-size: clamp(26px, 3.5vw, 34px);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-    }
-
-    .offer-text {
-      color: var(--text-2);
-      font-size: 16px;
-      max-width: 32rem;
-    }
-
-    .offer-checks {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .offer-checks i {
-      color: var(--accent-text);
-      margin-right: 10px;
-      width: 14px;
-    }
-
-    .faq-list {
-      margin-top: 48px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--card);
-      overflow: hidden;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 24px;
-      font-size: 15px;
-      font-weight: 500;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: '+';
-      font-family: var(--font-mono);
-      font-size: 18px;
-      color: var(--muted);
-      transition: transform 200ms var(--ease);
-    }
-
-    .faq-item[open] summary::after {
-      transform: rotate(45deg);
-    }
-
-    .faq-item summary:hover {
-      background: var(--raised);
-    }
-
-    .faq-item p {
-      padding: 0 24px 20px;
-      color: var(--text-2);
-      font-size: 14px;
-      max-width: 48rem;
-    }
-
-    .form-group select {
-      background: var(--bg);
-      border: 1px solid var(--border-strong);
-      border-radius: 8px;
-      padding: 10px 12px;
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 14px;
-      outline: none;
-      transition: border-color 150ms var(--ease);
-    }
-
-    .form-group select:focus {
-      border-color: var(--accent-text);
-    }
-
-    .contact-promise {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 32px;
-      font-size: 14px;
-      color: var(--text-2);
-    }
-
-    .contact-promise span {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .contact-promise i {
-      color: var(--accent-text);
-      width: 14px;
-    }
-
-    .btn-whatsapp {
-      gap: 8px;
-    }
-
-    [data-whatsapp][hidden] {
-      display: none !important;
-    }
-
-    @media (max-width: 1024px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .process-list {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .offer-card {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        padding: 32px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .process-list {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .offer-card {
-        padding: 24px;
-      }
-
-      .faq-item summary {
-        padding: 16px;
-      }
-
-      .faq-item p {
-        padding: 0 16px 16px;
-      }
-    }
-
-    .wa-float {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      z-index: 50;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #25d366;
-      color: #ffffff;
-      font-size: 26px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      transition: transform 150ms var(--ease);
-    }
-
-    .wa-float:hover {
-      transform: scale(1.06);
-    }
-
-    /* Splash Cursor fluid behind the hero content */
-    #hero {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .splash-cursor {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .splash-cursor__canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    #hero .hero-grid {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== PROCESS: SCROLL STACK ===== */
-    .process-stack {
-      position: relative;
-      width: 100%;
-      margin-top: 56px;
-    }
-
-    .scroll-stack__inner {
-      position: relative;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .scroll-stack__slot {
-      position: sticky;
-    }
-
-    .scroll-stack-card {
-      position: relative;
-      transform-origin: 50% 0;
-      will-change: transform;
-    }
-
-    .scroll-stack-card__shade {
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: #000;
-      opacity: var(--scroll-stack-dim, 0);
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    .step-card {
-      min-height: 320px;
-      padding: 36px 40px 32px;
-      border-radius: 24px;
-      overflow: hidden;
-      background:
-        radial-gradient(520px circle at 100% 0%, var(--accent-soft), transparent 55%),
-        var(--card);
-      border: 1px solid var(--border-strong);
-      box-shadow:
-        0 -16px 40px -20px rgba(0, 0, 0, 0.45),
-        0 28px 56px -28px rgba(0, 0, 0, 0.5);
-      transition: border-color 300ms var(--ease), box-shadow 300ms var(--ease);
-    }
-
-    /* Lime edge on the step currently on top of the pile */
-    .step-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity 300ms var(--ease);
-    }
-
-    .step-card.is-active {
-      border-color: var(--spot-edge);
-      box-shadow:
-        0 0 0 1px var(--accent-soft),
-        0 -16px 40px -20px rgba(0, 0, 0, 0.45),
-        0 28px 64px -24px rgba(0, 0, 0, 0.55),
-        0 0 80px -30px var(--accent);
-    }
-
-    .step-card.is-active::before {
-      opacity: 1;
-    }
-
-    .step-bignum {
-      position: absolute;
-      right: 28px;
-      bottom: -36px;
-      font-family: var(--font-mono);
-      font-size: 200px;
-      font-weight: 500;
-      line-height: 1;
-      letter-spacing: -0.06em;
-      color: transparent;
-      -webkit-text-stroke: 1px var(--border-strong);
-      pointer-events: none;
-      user-select: none;
-      transition: -webkit-text-stroke-color 400ms var(--ease), transform 600ms var(--ease);
-    }
-
-    .step-card.is-active .step-bignum {
-      -webkit-text-stroke-color: var(--spot-edge);
-      transform: translateY(-8px);
-    }
-
-    .step-head,
-    .step-title,
-    .step-desc,
-    .step-chips,
-    .step-bar {
-      position: relative;
-      z-index: 1;
-    }
-
-    .step-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-
-    .step-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      background: var(--raised);
-      border: 1px solid var(--border);
-      color: var(--accent-text);
-      font-size: 18px;
-      transition: background-color 300ms var(--ease), color 300ms var(--ease), transform 400ms var(--ease);
-    }
-
-    .step-card.is-active .step-icon {
-      background: var(--accent);
-      color: var(--accent-ink);
-      transform: rotate(-6deg) scale(1.05);
-    }
-
-    .step-kicker {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text);
-    }
-
-    .step-kicker span {
-      color: var(--muted);
-    }
-
-    .step-time {
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      height: 30px;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: var(--raised);
-      border: 1px solid var(--border);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-2);
-    }
-
-    .step-time i {
-      font-size: 11px;
-      color: var(--accent-text);
-    }
-
-    .step-title {
-      font-size: clamp(26px, 3.4vw, 36px);
-      font-weight: 500;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .step-desc {
-      max-width: 34rem;
-      font-size: 16px;
-      color: var(--text-2);
-      margin-bottom: 24px;
-    }
-
-    .step-chips {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .step-chips li {
-      height: 30px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      font-size: 13px;
-      color: var(--text);
-    }
-
-    .step-chips li::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent-dot);
-    }
-
-    .step-bar {
-      height: 3px;
-      max-width: 34rem;
-      border-radius: 3px;
-      background: var(--raised);
-      overflow: hidden;
-    }
-
-    .step-bar span {
-      display: block;
-      height: 100%;
-      width: calc(var(--step) / 6 * 100%);
-      border-radius: inherit;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 900ms var(--ease);
-    }
-
-    .step-card.is-active .step-bar span,
-    .step-card.is-seen .step-bar span {
-      transform: scaleX(1);
-    }
-
-    @media (max-width: 640px) {
-      .step-card {
-        min-height: 300px;
-        padding: 24px 20px;
-        border-radius: 20px;
-      }
-
-      .step-bignum {
-        font-size: 120px;
-        right: 12px;
-        bottom: -20px;
-      }
-
-      .step-time {
-        margin-left: 0;
-      }
-
-      .step-head {
-        margin-bottom: 20px;
-      }
-
-      .step-desc {
-        font-size: 15px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .step-card,
-      .step-bignum,
-      .step-icon,
-      .step-bar span {
-        transition: none;
-      }
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .footer-copy {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 4px;
-    }
-
-    .footer-links a {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 15px;
-      transition: color 150ms var(--ease), background-color 150ms var(--ease);
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-      background: var(--card);
-    }
-
-    /* ===== MOTION ===== */
-
-    /* Hero: the first screen rises in once, top to bottom */
-    .intro {
-      opacity: 0;
-      transform: translateY(10px);
-      animation: rise 600ms var(--ease) forwards;
-      animation-delay: calc(var(--i, 0) * 70ms + 100ms);
-    }
-
-    @keyframes rise {
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* Lists reveal item by item as they scroll into view */
-    .reveal.stagger {
-      opacity: 1;
-      transform: none;
-    }
-
-    .reveal-item {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 500ms var(--ease), transform 500ms var(--ease), border-color 150ms var(--ease);
-      transition-delay: calc(var(--i, 0) * 60ms), calc(var(--i, 0) * 60ms), 0ms;
-    }
-
-    .reveal.visible .reveal-item {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* Spotlight on project cards (ported from React Bits SpotlightCard) */
-    .project-card {
-      position: relative;
-      isolation: isolate;
-    }
-
-    .project-card::before,
-    .project-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 300ms var(--ease);
-    }
-
-    .project-card::before {
-      z-index: 0;
-      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--spot-fill), transparent 60%);
-    }
-
-    .project-card::after {
-      z-index: 2;
-      padding: 1px;
-      background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), var(--spot-edge), transparent 70%);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-    }
-
-    .project-card:hover::before,
-    .project-card:hover::after {
-      opacity: 1;
-    }
-
-    .project-body {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* The device inside each card lifts slightly on hover */
-    .phone,
-    .browser,
-    .vault {
-      transition: transform 400ms var(--ease);
-    }
-
-    .project-card:hover .phone,
-    .project-card:hover .browser,
-    .project-card:hover .vault {
-      transform: translateY(-6px);
-    }
-
-    /* Navigation marks the section you are reading */
-    .nav-links a:not(.nav-cta) {
-      position: relative;
-    }
-
-    .nav-links a:not(.nav-cta)::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      height: 1px;
-      background: var(--accent-dot);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 250ms var(--ease);
-    }
-
-    .nav-links a.is-active {
-      color: var(--text);
-    }
-
-    .nav-links a.is-active::after {
-      transform: scaleX(1);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .intro,
-      .reveal-item {
-        opacity: 1;
-        transform: none;
-        animation: none;
-        transition: none;
-      }
-
-      .project-card:hover .phone,
-      .project-card:hover .browser,
-      .project-card:hover .vault {
-        transform: none;
-      }
-    }
-
-    /* ===== ENTRANCE ===== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 400ms var(--ease), transform 400ms var(--ease);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      #hero {
-        min-height: auto;
-        padding: 112px 24px 64px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero-photo-wrap {
-        justify-self: start;
-        max-width: 320px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .about-img-wrap {
-        max-width: 280px;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      section {
-        padding: 64px 20px;
-      }
-
-      .hero-name {
-        font-size: 40px;
-      }
-
-      .hero-title {
-        font-size: 18px;
-      }
-
-      .hero-tagline {
-        font-size: 16px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: fixed;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: var(--bg);
-        padding: 24px;
-        gap: 20px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .about-sticker {
-        right: -12px;
-        bottom: -16px;
-      }
-
-      .skill-row {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 16px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .cl-text span {
-        display: none;
-      }
-
-      footer {
-        flex-direction: column;
-      }
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>emailjs.init("sClbtIbRLSqMfXO_f");</script>
+  <script src="assets/js/main.js" defer></script>
 </head>
-
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+      <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></symbol>
+      <symbol id="i-social" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><path d="M16.6 7.4h.01"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8" r="1.3"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z"/></symbol>
+      <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0 5 5L12 19a2.1 2.1 0 0 1-3-3l7.5-7.5a4 4 0 0 0-2-2z"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 7l3 3"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6l1-8z"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+      <symbol id="i-food" viewBox="0 0 24 24"><path d="M6 3v8M4 3v5a2 2 0 0 0 4 0V3M6 11v10M17 21V3c-2.5 1.5-3.5 4-3.5 8h3.5"/></symbol>
+      <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11" r="2"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></symbol>
+      <symbol id="i-health" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
+      <symbol id="i-gym" viewBox="0 0 24 24"><path d="M6.5 6.5v11M17.5 6.5v11M3 9.5v5M21 9.5v5M6.5 12h11"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+      <symbol id="i-call" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12.04 2a9.9 9.9 0 0 0-8.55 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 18.1a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 1 1 6.97 3.86zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.64.8-.78.96-.14.17-.29.19-.53.06a6.7 6.7 0 0 1-3.37-2.94c-.25-.44.25-.41.72-1.36.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.66.31 2.76 2.76 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.55 11 11 0 0 0 4.2 3.7c1.56.68 2.17.73 2.95.62.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.17-.06-.11-.22-.17-.47-.29z"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6.2 0C6.6 2.8 5.6 3.1 5.6 3.1a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M8 7.5h.01M12 17v-6.5M12 13.5c0-2 1.3-3 2.7-3s2.3 1 2.3 3V17"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    </defs>
+  </svg>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" onclick="closeLightbox()"><i class="fa fa-times"></i></button>
-    <img src="" id="lightbox-img" alt="Gallery photo" />
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#hero" class="nav-logo">Ankit Pandey</a>
-    <div class="nav-right">
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact" class="nav-cta" data-enquiry="Free 15-min call">Start a project</a></li>
-    </ul>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
-    </button>
-    <button class="hamburger" onclick="toggleNav()" id="hamburger" aria-label="Menu">
-      <span></span><span></span>
-    </button>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Ankit Builds, back to top">
+        <span class="brand-mark" aria-hidden="true">AB</span>
+        <span class="brand-name">Ankit Builds</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn-primary btn-sm nav-cta" href="#contact">Free Consultation</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="splash-cursor" data-contained aria-hidden="true"><canvas class="splash-cursor__canvas"></canvas></div>
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="status intro" style="--i:0"><span class="live-dot"></span>Available for new projects</div>
-        <h1 class="hero-headline intro" style="--i:1">I build websites and apps that help businesses <em>get more customers.</em></h1>
-        <p class="hero-tagline intro" style="--i:2">Full-stack web (MERN) and Android (Kotlin) developer. I design, build and maintain the whole product, so you deal with one person from idea to launch.</p>
-        <div class="btn-row intro" style="--i:3">
-          <a href="#contact" class="btn btn-primary" data-enquiry="Free 15-min call">Book a free 15-min call</a>
-          <a href="#projects" class="btn btn-ghost">See my work</a>
-        </div>
-      </div>
-      <figure class="hero-photo-wrap intro" style="--i:5">
-        <img src="hero.png" class="hero-photo" alt="Ankit Pandey">
-        <figcaption class="hero-caption">
-          <span>Ankit Pandey · India</span>
-          <span>Clients in India &amp; abroad</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-inner">
-      <div class="section-label">Services</div>
-      <h2 class="section-title">What I can build for you</h2>
-      <p class="section-sub">Clear scope, a fixed price agreed before work starts, and one person responsible from start to finish.</p>
-
-      <div class="services-grid reveal stagger">
-        <!-- To show prices, replace each "Fixed quote within 24h" line with e.g. <span>From</span> ₹15,000 -->
-        <article class="service-card reveal-item" style="--i:0">
-          <div class="service-icon"><i class="fa fa-globe"></i></div>
-          <h3 class="service-name">Business website</h3>
-          <p class="service-desc">A fast, mobile-friendly site that turns visitors into enquiries.</p>
-          <ul class="service-list">
-            <li>Custom design, no generic template</li>
-            <li>Enquiry form, WhatsApp &amp; Google Maps</li>
-            <li>Basic SEO so customers can find you</li>
-          </ul>
-          <div class="service-foot">
-            <div class="service-price">Fixed quote within 24h</div>
-            <a href="#contact" class="btn-sm btn-sm-ghost" data-enquiry="Business website">Get a quote</a>
-          </div>
-        </article>
-
-        <article class="service-card reveal-item" style="--i:1">
-          <div class="service-icon"><i class="fa fa-bullseye"></i></div>
-          <h3 class="service-name">Landing page</h3>
-          <p class="service-desc">One page built to sell one offer, class or product.</p>
-          <ul class="service-list">
-            <li>Copy structured to convert</li>
-            <li>Lead capture or booking form</li>
-            <li>Ready for ads and social links</li>
-          </ul>
-          <div class="service-foot">
-            <div class="service-price">Fixed quote within 24h</div>
-            <a href="#contact" class="btn-sm btn-sm-ghost" data-enquiry="Landing page">Get a quote</a>
-          </div>
-        </article>
-
-        <article class="service-card reveal-item" style="--i:2">
-          <div class="service-icon"><i class="fa fa-mobile-screen"></i></div>
-          <h3 class="service-name">Web / Android app (MVP)</h3>
-          <p class="service-desc">Turn your idea or business process into a working product.</p>
-          <ul class="service-list">
-            <li>Web app (MERN) or Android app (Kotlin)</li>
-            <li>Logins, dashboards, payments, admin panel</li>
-            <li>Backend, database and deployment included</li>
-          </ul>
-          <div class="service-foot">
-            <div class="service-price">Fixed quote within 24h</div>
-            <a href="#contact" class="btn-sm btn-sm-ghost" data-enquiry="Web or Android app">Get a quote</a>
-          </div>
-        </article>
-
-        <article class="service-card reveal-item" style="--i:3">
-          <div class="service-icon"><i class="fa fa-shield-halved"></i></div>
-          <h3 class="service-name">Care &amp; maintenance</h3>
-          <p class="service-desc">Monthly updates, security, backups and fixes, so your site never breaks quietly.</p>
-          <ul class="service-list">
-            <li>Content and feature updates</li>
-            <li>Security checks and backups</li>
-            <li>Priority fixes when something breaks</li>
-          </ul>
-          <div class="service-foot">
-            <div class="service-price">Monthly plan, quoted per site</div>
-            <a href="#contact" class="btn-sm btn-sm-ghost" data-enquiry="Care & maintenance">Ask about a plan</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS (React Bits Scroll Stack) -->
-  <section id="process">
-    <div class="section-inner">
-      <div class="section-label">How it works</div>
-      <h2 class="section-title">From first call to launch</h2>
-      <p class="section-sub">No surprises: you know the price, the timeline and what you're getting before any work starts. Scroll through the six steps.</p>
-
-      <div class="scroll-stack process-stack">
-        <div class="scroll-stack__inner">
-          <article class="scroll-stack-card step-card" style="--step:1">
-            <span class="step-bignum" aria-hidden="true">01</span>
-            <div class="step-head">
-              <span class="step-icon"><i class="fa fa-phone"></i></span>
-              <span class="step-kicker">Step 01 <span>/ 06</span></span>
-              <span class="step-time"><i class="fa fa-clock"></i>15 minutes</span>
-            </div>
-            <h3 class="step-title">Free call</h3>
-            <p class="step-desc">We talk about your business, your customers and what isn't working today. No jargon, no pressure.</p>
-            <ul class="step-chips">
-              <li>Your goals</li>
-              <li>Current problems</li>
-              <li>Rough budget</li>
-            </ul>
-            <div class="step-bar" aria-hidden="true"><span></span></div>
-          </article>
-          <article class="scroll-stack-card step-card" style="--step:2">
-            <span class="step-bignum" aria-hidden="true">02</span>
-            <div class="step-head">
-              <span class="step-icon"><i class="fa fa-file-signature"></i></span>
-              <span class="step-kicker">Step 02 <span>/ 06</span></span>
-              <span class="step-time"><i class="fa fa-clock"></i>Within 24 hours</span>
-            </div>
-            <h3 class="step-title">Clear proposal</h3>
-            <p class="step-desc">You get a written proposal with a fixed price, the exact scope and a delivery date. You know the cost before anything starts.</p>
-            <ul class="step-chips">
-              <li>Fixed price</li>
-              <li>Scope in writing</li>
-              <li>Delivery date</li>
-            </ul>
-            <div class="step-bar" aria-hidden="true"><span></span></div>
-          </article>
-          <article class="scroll-stack-card step-card" style="--step:3">
-            <span class="step-bignum" aria-hidden="true">03</span>
-            <div class="step-head">
-              <span class="step-icon"><i class="fa fa-pen-ruler"></i></span>
-              <span class="step-kicker">Step 03 <span>/ 06</span></span>
-              <span class="step-time"><i class="fa fa-clock"></i>Before any code</span>
-            </div>
-            <h3 class="step-title">Design preview</h3>
-            <p class="step-desc">I design the key screens first, so you see exactly how it will look and can ask for changes before I build.</p>
-            <ul class="step-chips">
-              <li>Mobile + desktop</li>
-              <li>Your branding</li>
-              <li>Changes before build</li>
-            </ul>
-            <div class="step-bar" aria-hidden="true"><span></span></div>
-          </article>
-          <article class="scroll-stack-card step-card" style="--step:4">
-            <span class="step-bignum" aria-hidden="true">04</span>
-            <div class="step-head">
-              <span class="step-icon"><i class="fa fa-code"></i></span>
-              <span class="step-kicker">Step 04 <span>/ 06</span></span>
-              <span class="step-time"><i class="fa fa-clock"></i>Weekly updates</span>
-            </div>
-            <h3 class="step-title">Build</h3>
-            <p class="step-desc">I build it with a progress update every week and a live preview link, so you're never left wondering where things stand.</p>
-            <ul class="step-chips">
-              <li>Live preview link</li>
-              <li>Weekly check-ins</li>
-              <li>Clean, secure code</li>
-            </ul>
-            <div class="step-bar" aria-hidden="true"><span></span></div>
-          </article>
-          <article class="scroll-stack-card step-card" style="--step:5">
-            <span class="step-bignum" aria-hidden="true">05</span>
-            <div class="step-head">
-              <span class="step-icon"><i class="fa fa-rocket"></i></span>
-              <span class="step-kicker">Step 05 <span>/ 06</span></span>
-              <span class="step-time"><i class="fa fa-clock"></i>Go-live day</span>
-            </div>
-            <h3 class="step-title">Launch</h3>
-            <p class="step-desc">I connect your domain, set up hosting and launch. Then I walk you through how to use and update everything.</p>
-            <ul class="step-chips">
-              <li>Domain &amp; hosting</li>
-              <li>Speed &amp; SEO basics</li>
-              <li>Handover walkthrough</li>
-            </ul>
-            <div class="step-bar" aria-hidden="true"><span></span></div>
-          </article>
-          <article class="scroll-stack-card step-card" style="--step:6">
-            <span class="step-bignum" aria-hidden="true">06</span>
-            <div class="step-head">
-              <span class="step-icon"><i class="fa fa-life-ring"></i></span>
-              <span class="step-kicker">Step 06 <span>/ 06</span></span>
-              <span class="step-time"><i class="fa fa-clock"></i>After launch</span>
-            </div>
-            <h3 class="step-title">Ongoing support</h3>
-            <p class="step-desc">I don't disappear after launch. Fixes, updates and new features whenever your business needs them.</p>
-            <ul class="step-chips">
-              <li>Bug fixes</li>
-              <li>Content updates</li>
-              <li>Monthly care plan</li>
-            </ul>
-            <div class="step-bar" aria-hidden="true"><span></span></div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-inner">
-      <div class="section-label">Work</div>
-      <h2 class="section-title">Work that's live and running</h2>
-      <p class="section-sub">Client work and products I've built, launched and maintain, end to end.</p>
-
-      <div class="projects-grid reveal stagger">
-
-        <!-- Infinity Interns -->
-        <article class="project-card reveal-item" style="--i:0">
-          <div class="project-img site-stage">
-            <div class="browser">
-              <div class="browser-bar"><span></span><span></span><span></span><em>infinityinterns.com</em></div>
-              <div class="browser-view"><img src="infinity-interns.png" alt="Infinity Interns platform homepage"></div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-tag">Laravel · PHP · MySQL · GitHub Actions</span>
-              <span class="project-state"><span class="live-dot"></span>Live · maintained by me</span>
-            </div>
-            <span class="project-label">Client case study</span>
-            <h3 class="project-name">Infinity Interns — rescuing a live education platform</h3>
-            <p class="project-desc">The business was left with a live platform and a previous developer it could no longer trust.</p>
-            <ul class="case-points">
-              <li><strong>Secured it:</strong> audited the server, removed risky access and rotated every credential, without taking the site down.</li>
-              <li><strong>Made updates safe:</strong> set up automated deployments (CI/CD), so changes go live without breaking things.</li>
-              <li><strong>Kept it running:</strong> I'm now the sole developer maintaining the platform.</li>
-            </ul>
-            <div class="project-links">
-              <a href="https://infinityinterns.com" class="btn-sm btn-sm-fill" target="_blank"><i
-                  class="fa fa-arrow-up-right-from-square"></i> Live site</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Consnow -->
-        <article class="project-card reveal-item" style="--i:1">
-          <div class="project-img phone-stage">
-            <div class="phone"><img src="consnow.png" alt="Consnow app showing today's steps and last unlock"></div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-tag">Kotlin · Jetpack Compose · NestJS · PostgreSQL</span>
-              <span class="project-state"><span class="live-dot"></span>In Play Store testing</span>
-            </div>
-            <span class="project-label">Co-built product · technical lead</span>
-            <h3 class="project-name">Consnow — a social app, from idea to working product</h3>
-            <p class="project-desc">A co-founder brought the idea; I own the whole technical side. Consnow lets close
-              friends see if each other are awake, active or offline without texting. I built the Kotlin/Jetpack
-              Compose Android app and the NestJS + PostgreSQL backend, including a background sync that keeps working
-              even on phones that aggressively kill apps to save battery.</p>
-            <div class="project-links">
-              <a href="https://ankitcodeshub.github.io/Ankit-Pandey-Portfolio/consnow.apk" class="btn-sm btn-sm-fill" download><i class="fa fa-download"></i> Download APK</a>
-              <a href="https://github.com/AnkitCodesHub/consnow-backend" class="btn-sm btn-sm-ghost" target="_blank"><i
-                  class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Smart DND -->
-        <article class="project-card reveal-item" style="--i:2">
-          <div class="project-img phone-stage">
-            <div class="phone"><img src="smart-dnd.jpeg" alt="Smart DND app with auto reply and status settings"></div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-tag">Kotlin</span>
-            </div>
-            <h3 class="project-name">Smart DND — do not disturb</h3>
-            <p class="project-desc">Auto Reply, DND Sync, and Auto-Off Timer — set your status to Studying, Sleeping,
-              Driving, or Meeting and Smart DND handles the rest automatically.</p>
-            <div class="project-links">
-              <a href="https://ankitcodeshub.github.io/Ankit-Pandey-Portfolio/smartdnd.apk" class="btn-sm btn-sm-fill" download><i class="fa fa-download"></i> Download APK</a>
-              <a href="https://github.com/AnkitCodesHub/smartDND" class="btn-sm btn-sm-ghost" target="_blank"><i
-                  class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PassOP -->
-        <article class="project-card reveal-item" style="--i:3">
-          <div class="project-img vault-stage">
-            <div class="vault" aria-hidden="true">
-              <div class="vault-head"><i class="fa fa-lock"></i> PassOP vault</div>
-              <div class="vault-row"><span>github.com</span><span class="mask">••••••••••••</span></div>
-              <div class="vault-row"><span>mail.google.com</span><span class="mask">••••••••••</span></div>
-              <div class="vault-row"><span>linkedin.com</span><span class="mask">•••••••••••••</span></div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="project-tag">React · MongoDB · Node.js</span>
-            </div>
-            <h3 class="project-name">PassOP — password manager</h3>
-            <p class="project-desc">Your passwords, encrypted and accessible only to you. PassOP stores credentials with
-              built-in encryption, keeping your data secure on-device. More features in active development.</p>
-            <div class="project-links">
-              <a href="https://passop-mongo-zrll.onrender.com" class="btn-sm btn-sm-fill" target="_blank"><i
-                  class="fa fa-arrow-up-right-from-square"></i> Live demo</a>
-              <a href="https://github.com/AnkitCodesHub/passop-mongo" class="btn-sm btn-sm-ghost" target="_blank"><i
-                  class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!--
-        TESTIMONIALS: uncomment this block once your clients send a quote.
-        Use their real words, name and business only, with their permission.
-
-      <div class="projects-grid" style="margin-top:24px">
-        <figure class="service-card">
-          <blockquote class="service-desc" style="font-size:16px;color:var(--text)">"Client's words here."</blockquote>
-          <figcaption class="project-tag">Client name · Business name</figcaption>
-        </figure>
-        <figure class="service-card">
-          <blockquote class="service-desc" style="font-size:16px;color:var(--text)">"Client's words here."</blockquote>
-          <figcaption class="project-tag">Client name · Business name</figcaption>
-        </figure>
-      </div>
-      -->
-    </div>
-  </section>
-
-  <!-- FREE REVIEW OFFER -->
-  <section id="review">
-    <div class="section-inner">
-      <div class="offer-card reveal">
-        <div>
-          <div class="section-label">Free website review</div>
-          <h2 class="offer-title">Not sure what you need?</h2>
-          <p class="offer-text">Send me your website (or your Instagram/Google listing if you don't have one yet). I'll
-            record a short video showing what's working, what's costing you customers, and how to fix it. Free, with no
-            obligation to hire me.</p>
-        </div>
-        <div>
-          <ul class="offer-checks">
-            <li><i class="fa fa-check"></i>Personal video review, not an automated report</li>
-            <li><i class="fa fa-check"></i>Mobile speed and usability check</li>
-            <li><i class="fa fa-check"></i>3 practical fixes you can act on</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary" data-enquiry="Free website review">Get my free review</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-inner">
-      <div class="section-label">About</div>
-      <h2 class="section-title">One developer, the whole product</h2>
-      <div class="about-grid reveal">
-        <div class="about-img-wrap">
-          <img src="about.jpeg" class="about-img" alt="Ankit Pandey">
-          <div class="about-sticker">
-            <div class="num" data-count="2">2</div>
-            <div class="lbl">Business projects delivered</div>
-          </div>
-        </div>
-        <div>
-          <div class="about-bio">
-            <p>I'm <strong>Ankit Pandey</strong>, a full-stack web and Android developer based in India.</p>
-
-            <p>I design, build and maintain products end to end: the interface your customers see, the backend
-              that runs it, and the hosting that keeps it online. You don't have to coordinate a designer, a
-              developer and a "server person". It's just me, and I own the result.</p>
-
-            <p>I work with businesses in India and abroad, and I keep supporting what I build long after launch.</p>
-          </div>
-          <div class="interests">
-            <span class="interest-tag">UI/UX design</span>
-            <span class="interest-tag">Web apps (MERN)</span>
-            <span class="interest-tag">Android (Kotlin)</span>
-            <span class="interest-tag">Hosting &amp; maintenance</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-inner">
-      <div class="section-label">Toolkit</div>
-      <h2 class="section-title">Built with modern, reliable tools</h2>
-      <p class="section-sub">The same technology used by established companies, picked to fit your project, not the trend of the month.</p>
-
-      <div class="skills-table reveal stagger">
-        <div class="skill-row reveal-item" style="--i:0">
-          <span class="skill-category">Languages</span>
-          <div class="skill-tags">
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">C</span>
-            <span class="skill-tag">C++</span>
-          </div>
-        </div>
-        <div class="skill-row reveal-item" style="--i:1">
-          <span class="skill-category">Frontend</span>
-          <div class="skill-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">UI/UX design</span>
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-          </div>
-        </div>
-        <div class="skill-row reveal-item" style="--i:2">
-          <span class="skill-category">Backend</span>
-          <div class="skill-tags">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Express.js</span>
-            <span class="skill-tag">NestJS</span>
-            <span class="skill-tag">Laravel / PHP</span>
-            <span class="skill-tag">REST APIs</span>
-          </div>
-        </div>
-        <div class="skill-row reveal-item" style="--i:3">
-          <span class="skill-category">Mobile</span>
-          <div class="skill-tags">
-            <span class="skill-tag">Android</span>
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Jetpack Compose</span>
-          </div>
-        </div>
-        <div class="skill-row reveal-item" style="--i:4">
-          <span class="skill-category">Database</span>
-          <div class="skill-tags">
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">Firebase</span>
-          </div>
-        </div>
-        <div class="skill-row reveal-item" style="--i:5">
-          <span class="skill-category">Tools</span>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">GitHub Actions CI/CD</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Android Studio</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="section-inner">
-      <div class="section-label">FAQ</div>
-      <h2 class="section-title">Questions clients usually ask</h2>
-      <div class="faq-list reveal">
-        <details class="faq-item">
-          <summary>How long does a project take?</summary>
-          <p>It depends on scope, and you'll get an exact timeline in the proposal before we start. As a rough guide: a
-            landing page takes about 1 week, a business website 2–3 weeks, and an app MVP 4–8 weeks.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How does payment work?</summary>
-          <p>We agree on a fixed price before any work starts. I take 50% upfront to begin and the remaining 50% before
-            launch. No hourly billing, no surprise costs.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do you work with clients outside India?</summary>
-          <p>Yes. I work remotely with clients anywhere, over email, WhatsApp and video calls, and I can schedule calls
-            to overlap with your working hours.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Can you handle the domain, hosting and launch?</summary>
-          <p>Yes. I can set up your domain, hosting and business email, deploy the site or app, and keep it running
-            afterwards with a monthly care plan if you want one.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Will I own the website or app?</summary>
-          <p>Yes. Once the project is paid in full, the code, design and accounts are yours. Nothing is locked to me.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How quickly do you reply?</summary>
-          <p>Within 24 hours, usually much sooner. Once we're working together, you get regular progress updates
-            without having to chase me.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-inner">
-      <div class="section-label">Contact</div>
-      <h2 class="section-title">Start a project</h2>
-      <p class="section-sub">Tell me a little about your business and what you need. I'll reply within 24 hours with next steps.</p>
-      <div class="contact-grid reveal">
-        <div>
-          <h3 class="contact-info-title">Let's talk about your project</h3>
-          <div class="contact-promise">
-            <span><i class="fa fa-clock"></i>Reply within 24 hours</span>
-            <span><i class="fa fa-phone"></i><em style="font-style:normal">Call <a href="tel:+916205323586" style="color:var(--text);text-underline-offset:3px">+91-6205323586</a> · free 15-minute call, no obligation</em></span>
-            <span><i class="fa fa-file-lines"></i>Fixed-price proposal before any work starts</span>
-          </div>
-          <div class="contact-links">
-            <a href="#" class="contact-link" data-whatsapp target="_blank" rel="noopener" hidden>
-              <i class="fab fa-whatsapp cl-icon"></i>
-              <div class="cl-text"><strong>WhatsApp</strong><span>Message me directly</span></div>
-            </a>
-            <a href="tel:+916205323586" class="contact-link">
-              <i class="fa fa-phone cl-icon"></i>
-              <div class="cl-text"><strong>Phone</strong><span>+91-6205323586</span></div>
-            </a>
-            <a href="mailto:ankitraj5309@gmail.com" class="contact-link">
-              <i class="fa fa-envelope cl-icon"></i>
-              <div class="cl-text"><strong>Email</strong><span>ankitraj5309@gmail.com</span></div>
-            </a>
-            <a href="https://github.com/AnkitCodesHub" target="_blank" class="contact-link">
-              <i class="fab fa-github cl-icon"></i>
-              <div class="cl-text"><strong>GitHub</strong><span>github.com/AnkitCodesHub</span></div>
-            </a>
-            <a href="https://www.linkedin.com/in/ankitraj-pandey" target="_blank" class="contact-link">
-              <i class="fab fa-linkedin-in cl-icon"></i>
-              <div class="cl-text"><strong>LinkedIn</strong><span>linkedin.com/in/ankitraj-pandey</span></div>
-            </a>
-          </div>
-        </div>
-        <form class="contact-form" onsubmit="submitForm(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" placeholder="you@example.com" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="enquiry-type">What do you need?</label>
-            <select id="enquiry-type">
-              <option>Free 15-min call</option>
-              <option>Business website</option>
-              <option>Landing page</option>
-              <option>Web or Android app</option>
-              <option>Care &amp; maintenance</option>
-              <option>Free website review</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Your business or website</label>
-            <input type="text" id="enquiry-subject" placeholder="e.g. FitZone Gym, fitzone.in" />
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea id="enquiry-message" placeholder="What does your business do, and what would you like the website or app to achieve?"></textarea>
-          </div>
+  <main id="main">
+    <section class="hero dark" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Independent digital studio · India</p>
+          <h1 id="hero-title" class="hero-title text-effect">
+            <span style="--w:0">Your</span> <span style="--w:1">Business</span> <span style="--w:2">Deserves</span> <span style="--w:3">a</span> <span style="--w:4">Better</span> <span style="--w:5" class="accent-word">Digital</span> <span style="--w:6" class="accent-word">Presence.</span>
+          </h1>
+          <p class="hero-lead">We help businesses build a strong online presence through professionally designed websites, social media management and digital solutions that make it easier for customers to discover and connect with you.</p>
+          <p class="hero-loop">
+            <span class="sr-only">Built for restaurants, hotels, coaching institutes, clinics, gyms, salons and local shops.</span>
+            <span aria-hidden="true">Built for</span>
+            <span class="text-loop" aria-hidden="true">
+              <span class="is-active">restaurants &amp; cafés</span>
+              <span>hotels &amp; resorts</span>
+              <span>coaching institutes</span>
+              <span>clinics</span>
+              <span>gyms &amp; fitness centres</span>
+              <span>salons &amp; boutiques</span>
+              <span>local shops</span>
+            </span>
+          </p>
           <div class="btn-row">
-            <button type="submit" class="form-submit">Send message</button>
-            <a href="#" class="btn btn-ghost btn-whatsapp" data-whatsapp target="_blank" rel="noopener" hidden><i class="fab fa-whatsapp"></i> WhatsApp me</a>
+            <a class="btn btn-primary magnetic" href="#services">Explore Our Services <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline-light" href="#contact" data-wa="hero"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat on WhatsApp</a>
           </div>
+          <ul class="hero-services" aria-label="Services">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-web"/></svg>Website Development</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-social"/></svg>Social Media Management</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Complete Digital Presence</li>
+          </ul>
+        </div>
+
+        <figure class="hero-visual">
+          <div class="browser hero-browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>infinityinterns.com</span></div>
+            <img src="assets/img/infinity-interns.webp" width="1200" height="624" alt="Homepage of Infinity Interns, a live education platform maintained by Ankit Builds" fetchpriority="high">
+          </div>
+          <div class="phone hero-phone" aria-hidden="true">
+            <div class="phone-screen mock mock-cafe">
+              <div class="mock-nav"><b>Café Concept</b><span></span></div>
+              <div class="mock-hero"><small>Open today · 8 am – 11 pm</small><strong>Fresh coffee &amp; good food</strong></div>
+              <div class="mock-row"><span>Cold coffee</span><em>₹120</em></div>
+              <div class="mock-row"><span>Paneer wrap</span><em>₹160</em></div>
+              <div class="mock-row"><span>Masala fries</span><em>₹90</em></div>
+              <div class="mock-wa">Order on WhatsApp</div>
+            </div>
+          </div>
+          <div class="hero-chip chip-price"><small>Websites from</small><strong>₹4,999</strong></div>
+          <div class="hero-chip chip-mobile"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Mobile-first</div>
+          <figcaption>Left: live client platform. Right: café website concept.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="trust" aria-label="What you can expect">
+      <div class="container">
+        <ul class="trust-list">
+          <li data-reveal style="--i:0"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg>Custom-designed websites</li>
+          <li data-reveal style="--i:1"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Mobile-first experiences</li>
+          <li data-reveal style="--i:2"><svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg>Transparent pricing</li>
+          <li data-reveal style="--i:3"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>Direct communication</li>
+          <li data-reveal style="--i:4"><svg class="icon" aria-hidden="true"><use href="#i-tool"/></svg>Development &amp; ongoing support</li>
+        </ul>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Hotels &amp; resorts</span><span>Restaurants &amp; cafés</span><span>Coaching institutes</span><span>Banquet halls</span><span>Clinics</span><span>Real estate</span><span>Gyms &amp; fitness</span><span>Sweet shops</span><span>Boutiques</span><span>Salons</span><span>Local retail</span>
+          <span>Hotels &amp; resorts</span><span>Restaurants &amp; cafés</span><span>Coaching institutes</span><span>Banquet halls</span><span>Clinics</span><span>Real estate</span><span>Gyms &amp; fitness</span><span>Sweet shops</span><span>Boutiques</span><span>Salons</span><span>Local retail</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cloud" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Services</p>
+          <h2 id="services-title">Three ways to grow your business online</h2>
+          <p>Pick a single service or combine them. Every project is planned around what your business actually needs.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card svc-web spotlight" data-reveal style="--i:0">
+            <div class="svc-top">
+              <span class="svc-icon"><svg class="icon" aria-hidden="true"><use href="#i-web"/></svg></span>
+              <span class="badge">One-time project</span>
+            </div>
+            <h3>Website Development</h3>
+            <p>Professional websites designed to establish credibility, showcase your business and help customers connect with you.</p>
+            <ul class="checks">
+              <li>Professional business website</li>
+              <li>Mobile-responsive design</li>
+              <li>WhatsApp integration</li>
+              <li>Contact and enquiry forms</li>
+              <li>Google Maps integration</li>
+            </ul>
+            <p class="svc-for"><strong>Ideal for</strong> hotels, coaching institutes, banquet halls, clinics, real estate agencies</p>
+            <a class="btn btn-primary btn-block" href="#pricing">Explore Website Packages <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="service-card svc-social spotlight" data-reveal style="--i:1">
+            <div class="svc-top">
+              <span class="svc-icon"><svg class="icon" aria-hidden="true"><use href="#i-social"/></svg></span>
+              <span class="badge">Monthly service</span>
+            </div>
+            <h3>Social Media Management</h3>
+            <p>Consistent and professional social media management to help your business stay visible, engage with customers and communicate its offerings.</p>
+            <ul class="checks">
+              <li>Instagram and Facebook management</li>
+              <li>Posts and promotional creatives</li>
+              <li>Reels and video editing</li>
+              <li>Content calendar</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <p class="svc-for"><strong>Ideal for</strong> restaurants, cafés, gyms, sweet shops, boutiques, salons</p>
+            <a class="btn btn-outline btn-block" href="#contact" data-wa="social">Discuss Social Media Management</a>
+            <p class="svc-note">Priced by quotation, based on posting frequency and platforms.</p>
+          </article>
+
+          <article class="service-card svc-combo spotlight" data-reveal style="--i:2">
+            <div class="svc-top">
+              <span class="svc-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+              <span class="badge">Website + monthly</span>
+            </div>
+            <h3>Complete Digital Presence</h3>
+            <p>An integrated digital solution combining a professional website, social media management and local search visibility.</p>
+            <ul class="checks">
+              <li>Professional website</li>
+              <li>Social media management</li>
+              <li>Google Business Profile optimisation</li>
+              <li>Local SEO basics</li>
+              <li>WhatsApp enquiry integration</li>
+            </ul>
+            <p class="svc-for"><strong>Ideal for</strong> established businesses looking for a complete digital presence and long-term growth</p>
+            <a class="btn btn-outline btn-block" href="#contact" data-wa="complete">Build My Digital Presence</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head center">
+          <p class="kicker">Website pricing</p>
+          <h2 id="pricing-title">Clear starting prices. No surprises.</h2>
+          <p>Choose the package closest to what you need. You'll get a written quotation with exact scope before any work begins.</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan" data-reveal style="--i:0">
+            <h3 class="plan-name">Starter</h3>
+            <p class="plan-sub">Basic Business Website</p>
+            <p class="plan-price"><span class="amount">₹4,999</span><span class="onwards">onwards</span></p>
+            <p class="plan-for">For small shops, salons and local service providers.</p>
+            <a class="btn btn-outline btn-block" href="#contact" data-wa="starter">Get Started</a>
+            <ul class="checks">
+              <li>Up to 3–4 pages</li>
+              <li>Mobile-responsive design</li>
+              <li>Business information and services</li>
+              <li>WhatsApp integration</li>
+              <li>Google Maps integration</li>
+              <li>Contact form</li>
+              <li>Basic SEO setup</li>
+            </ul>
+          </article>
+
+          <article class="plan plan-featured" data-reveal style="--i:1">
+            <span class="plan-flag">Popular</span>
+            <h3 class="plan-name">Professional</h3>
+            <p class="plan-sub">Professional Business Website</p>
+            <p class="plan-price"><span class="amount">₹9,999</span><span class="onwards">onwards</span></p>
+            <p class="plan-for">For restaurants, hotels, coaching institutes and gyms.</p>
+            <a class="btn btn-primary btn-block magnetic" href="#contact" data-wa="professional">Choose Professional</a>
+            <ul class="checks">
+              <li>Up to 6–8 pages</li>
+              <li>Custom UI/UX design</li>
+              <li>Product / service showcase</li>
+              <li>WhatsApp enquiry integration</li>
+              <li>Contact and enquiry forms</li>
+              <li>SEO fundamentals</li>
+              <li>Google Maps integration</li>
+              <li>Analytics integration</li>
+            </ul>
+          </article>
+
+          <article class="plan" data-reveal style="--i:2">
+            <h3 class="plan-name">Advanced</h3>
+            <p class="plan-sub">Website With Booking / Ordering</p>
+            <p class="plan-price"><span class="amount">₹14,999</span><span class="onwards">onwards</span></p>
+            <p class="plan-for">For hotels, restaurants and businesses that take bookings or orders online.</p>
+            <a class="btn btn-outline btn-block" href="#contact" data-wa="advanced">Discuss Your Project</a>
+            <ul class="checks">
+              <li>Custom website design</li>
+              <li>Online ordering or booking workflow</li>
+              <li>Admin dashboard where required</li>
+              <li>Database integration</li>
+              <li>Booking / enquiry management</li>
+              <li>Optional payment gateway integration</li>
+              <li>Deployment and testing</li>
+            </ul>
+          </article>
+        </div>
+        <div class="pricing-note" data-reveal>
+          <p><strong>All prices are starting prices.</strong> Final quotations depend on the number of pages, functionality, integrations and project requirements.</p>
+          <p>Domain registration, hosting, premium third-party services, payment gateway charges and other external subscriptions are billed separately at actual cost.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cloud" id="industries" aria-labelledby="industries-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Industries</p>
+          <h2 id="industries-title">Digital Solutions Built Around Your Business.</h2>
+          <p>Select your industry to see what a website for your kind of business usually includes.</p>
+        </div>
+        <div class="industry">
+          <div class="industry-tabs" role="tablist" aria-label="Industries">
+            <span class="tab-indicator" aria-hidden="true"></span>
+            <button role="tab" id="tab-food" aria-controls="panel-food" aria-selected="true"><svg class="icon" aria-hidden="true"><use href="#i-food"/></svg>Restaurants &amp; Cafés</button>
+            <button role="tab" id="tab-hotel" aria-controls="panel-hotel" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-bed"/></svg>Hotels &amp; Resorts</button>
+            <button role="tab" id="tab-coach" aria-controls="panel-coach" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>Coaching Institutes</button>
+            <button role="tab" id="tab-banquet" aria-controls="panel-banquet" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>Banquet Halls</button>
+            <button role="tab" id="tab-clinic" aria-controls="panel-clinic" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-health"/></svg>Clinics</button>
+            <button role="tab" id="tab-gym" aria-controls="panel-gym" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-gym"/></svg>Gyms &amp; Fitness</button>
+            <button role="tab" id="tab-retail" aria-controls="panel-retail" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Retail &amp; Boutiques</button>
+          </div>
+
+          <div class="industry-panel" role="tabpanel" id="panel-food" aria-labelledby="tab-food">
+            <div class="ip-copy">
+              <h3>Restaurants &amp; Cafés</h3>
+              <p>Let hungry customers see your menu, find you and order in a couple of taps.</p>
+              <ul class="checks"><li>Digital menu</li><li>Food and product showcase</li><li>WhatsApp ordering enquiries</li><li>Location and contact information</li><li>Online ordering where required</li></ul>
+              <a class="link-arrow" href="#contact" data-wa="industry" data-topic="restaurant / café">Discuss a website for my restaurant <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ip-mock" aria-hidden="true"><div class="mm-bar"><i></i><i></i><i></i></div><div class="mm-hero"><b>Today's Specials</b><span>Order on WhatsApp</span></div><div class="mm-grid"><span>Starters</span><span>Mains</span><span>Desserts</span></div><div class="mm-foot">📍 Find us · Open till 11 pm</div></div>
+          </div>
+          <div class="industry-panel" role="tabpanel" id="panel-hotel" aria-labelledby="tab-hotel" hidden>
+            <div class="ip-copy">
+              <h3>Hotels &amp; Resorts</h3>
+              <p>Show rooms and facilities beautifully and turn visitors into booking enquiries.</p>
+              <ul class="checks"><li>Room and facility showcases</li><li>Booking enquiry forms</li><li>Gallery</li><li>Location information</li><li>Booking workflow where required</li></ul>
+              <a class="link-arrow" href="#contact" data-wa="industry" data-topic="hotel / resort">Discuss a website for my hotel <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ip-mock" aria-hidden="true"><div class="mm-bar"><i></i><i></i><i></i></div><div class="mm-hero"><b>Stay with us</b><span>Check availability</span></div><div class="mm-grid"><span>Deluxe room</span><span>Suite</span><span>Gallery</span></div><div class="mm-foot">📍 Directions · Facilities</div></div>
+          </div>
+          <div class="industry-panel" role="tabpanel" id="panel-coach" aria-labelledby="tab-coach" hidden>
+            <div class="ip-copy">
+              <h3>Coaching Institutes</h3>
+              <p>Help parents and students understand your courses and apply with confidence.</p>
+              <ul class="checks"><li>Course listings</li><li>Faculty information</li><li>Admission enquiry forms</li><li>Student information</li><li>Contact details</li></ul>
+              <a class="link-arrow" href="#contact" data-wa="industry" data-topic="coaching institute">Discuss a website for my institute <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ip-mock" aria-hidden="true"><div class="mm-bar"><i></i><i></i><i></i></div><div class="mm-hero"><b>Admissions open</b><span>Enquire now</span></div><div class="mm-grid"><span>Courses</span><span>Faculty</span><span>Batches</span></div><div class="mm-foot">📞 Call · WhatsApp · Visit</div></div>
+          </div>
+          <div class="industry-panel" role="tabpanel" id="panel-banquet" aria-labelledby="tab-banquet" hidden>
+            <div class="ip-copy">
+              <h3>Banquet Halls</h3>
+              <p>Present your venue, packages and capacity so families can plan their event with you.</p>
+              <ul class="checks"><li>Venue galleries</li><li>Event packages</li><li>Capacity and facility information</li><li>Booking enquiries</li></ul>
+              <a class="link-arrow" href="#contact" data-wa="industry" data-topic="banquet hall">Discuss a website for my venue <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ip-mock" aria-hidden="true"><div class="mm-bar"><i></i><i></i><i></i></div><div class="mm-hero"><b>Celebrate here</b><span>Check dates</span></div><div class="mm-grid"><span>Weddings</span><span>Parties</span><span>Packages</span></div><div class="mm-foot">Capacity · Parking · Catering</div></div>
+          </div>
+          <div class="industry-panel" role="tabpanel" id="panel-clinic" aria-labelledby="tab-clinic" hidden>
+            <div class="ip-copy">
+              <h3>Clinics</h3>
+              <p>Build patient trust with clear information about doctors, services and timings.</p>
+              <ul class="checks"><li>Doctor profiles</li><li>Available services</li><li>Appointment enquiries</li><li>Location and contact information</li></ul>
+              <a class="link-arrow" href="#contact" data-wa="industry" data-topic="clinic">Discuss a website for my clinic <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ip-mock" aria-hidden="true"><div class="mm-bar"><i></i><i></i><i></i></div><div class="mm-hero"><b>Care you can trust</b><span>Request appointment</span></div><div class="mm-grid"><span>Doctors</span><span>Services</span><span>Timings</span></div><div class="mm-foot">📍 Clinic location · Contact</div></div>
+          </div>
+          <div class="industry-panel" role="tabpanel" id="panel-gym" aria-labelledby="tab-gym" hidden>
+            <div class="ip-copy">
+              <h3>Gyms &amp; Fitness Centres</h3>
+              <p>Show plans, trainers and facilities, and make joining as easy as sending a message.</p>
+              <ul class="checks"><li>Membership plans</li><li>Trainer profiles</li><li>Facilities and equipment</li><li>Enquiry forms</li></ul>
+              <a class="link-arrow" href="#contact" data-wa="industry" data-topic="gym">Discuss a website for my gym <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ip-mock" aria-hidden="true"><div class="mm-bar"><i></i><i></i><i></i></div><div class="mm-hero"><b>Start training</b><span>Book a free trial</span></div><div class="mm-grid"><span>Plans</span><span>Trainers</span><span>Facilities</span></div><div class="mm-foot">Timings · Location</div></div>
+          </div>
+          <div class="industry-panel" role="tabpanel" id="panel-retail" aria-labelledby="tab-retail" hidden>
+            <div class="ip-copy">
+              <h3>Retail, Sweet Shops &amp; Boutiques</h3>
+              <p>Turn your products into a browsable catalogue customers can order from on WhatsApp.</p>
+              <ul class="checks"><li>Product catalogues</li><li>Product photography</li><li>Product enquiries</li><li>WhatsApp ordering</li></ul>
+              <a class="link-arrow" href="#contact" data-wa="industry" data-topic="shop / boutique">Discuss a website for my shop <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ip-mock" aria-hidden="true"><div class="mm-bar"><i></i><i></i><i></i></div><div class="mm-hero"><b>New arrivals</b><span>Order on WhatsApp</span></div><div class="mm-grid"><span>Sweets</span><span>Gift boxes</span><span>Festive</span></div><div class="mm-foot">Catalogue · Store location</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Portfolio</p>
+          <h2 id="portfolio-title">Websites Built for Real Business Needs</h2>
+          <p>Explore website concepts designed for restaurants, educational institutes, confectionery brands and hospitality businesses.</p>
+        </div>
+
+        <h3 class="sub-head">Business websites</h3>
+        <div class="work-grid">
+          <article class="work-card" data-reveal style="--i:0">
+            <div class="work-shot"><img src="assets/img/work-zorko-640.webp" srcset="assets/img/work-zorko-640.webp 640w, assets/img/work-zorko.webp 1280w" sizes="(min-width: 1080px) 560px, (min-width: 700px) 46vw, 92vw" width="1280" height="800" alt="Homepage of the Zorko Bihar Sharif restaurant website" loading="lazy" decoding="async"></div>
+            <div class="work-body">
+              <p class="meta"><span>Restaurant Website</span><span class="label label-live">Live demo</span></p>
+              <h4>Zorko</h4>
+              <p>A modern restaurant website designed to showcase the restaurant's food offerings, menu, brand identity and customer experience through an attractive and easy-to-navigate interface.</p>
+              <ul class="tags" aria-label="Project tags"><li>Restaurant Website</li><li>Responsive Design</li><li>Menu Showcase</li><li>Business Website</li></ul>
+              <a class="btn btn-primary btn-sm work-link" href="https://zorko-biharsarif.hrishabkumarpandey022.workers.dev/" target="_blank" rel="noopener noreferrer" aria-label="View Zorko live website (opens in a new tab)">View Live Website <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+          </article>
+          <article class="work-card" data-reveal style="--i:1">
+            <div class="work-shot"><img src="assets/img/work-easy-english-640.webp" srcset="assets/img/work-easy-english-640.webp 640w, assets/img/work-easy-english.webp 1280w" sizes="(min-width: 1080px) 560px, (min-width: 700px) 46vw, 92vw" width="1280" height="800" alt="Homepage of the Easy English Classes coaching institute website" loading="lazy" decoding="async"></div>
+            <div class="work-body">
+              <p class="meta"><span>Education / Coaching Website</span><span class="label label-live">Live demo</span></p>
+              <h4>Easy English Classes</h4>
+              <p>A professional coaching institute website designed to present courses, educational services and institute information while making it easier for prospective students to explore the offerings.</p>
+              <ul class="tags" aria-label="Project tags"><li>Education Website</li><li>Coaching Institute</li><li>Responsive Design</li><li>Course Presentation</li></ul>
+              <a class="btn btn-primary btn-sm work-link" href="https://easy-english-classes.hrishabkumarpandey022.workers.dev/" target="_blank" rel="noopener noreferrer" aria-label="View Easy English Classes live website (opens in a new tab)">View Live Website <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+          </article>
+          <article class="work-card" data-reveal style="--i:2">
+            <div class="work-shot"><img src="assets/img/work-bedilal-640.webp" srcset="assets/img/work-bedilal-640.webp 640w, assets/img/work-bedilal.webp 1280w" sizes="(min-width: 1080px) 560px, (min-width: 700px) 46vw, 92vw" width="1280" height="800" alt="Homepage of the Bedi Lal Sweets confectionery website" loading="lazy" decoding="async"></div>
+            <div class="work-body">
+              <p class="meta"><span>Confectionery / Sweets Website</span><span class="label label-live">Live demo</span></p>
+              <h4>Bedi Lal Sweets</h4>
+              <p>An elegant business website designed for a sweets and confectionery brand to showcase its products, establish brand identity and provide customers with an accessible online experience.</p>
+              <ul class="tags" aria-label="Project tags"><li>Confectionery Website</li><li>Product Showcase</li><li>Business Website</li><li>Responsive Design</li></ul>
+              <a class="btn btn-primary btn-sm work-link" href="https://bedilal-sweets.hrishabkumarpandey022.workers.dev/" target="_blank" rel="noopener noreferrer" aria-label="View Bedi Lal Sweets live website (opens in a new tab)">View Live Website <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+          </article>
+          <article class="work-card" data-reveal style="--i:3">
+            <div class="work-shot"><img src="assets/img/work-mamta-640.webp" srcset="assets/img/work-mamta-640.webp 640w, assets/img/work-mamta.webp 1280w" sizes="(min-width: 1080px) 560px, (min-width: 700px) 46vw, 92vw" width="1280" height="800" alt="Homepage of the Hotel Mamta International website" loading="lazy" decoding="async"></div>
+            <div class="work-body">
+              <p class="meta"><span>Hotel / Hospitality Website</span><span class="label label-live">Live demo</span></p>
+              <h4>Mamta International</h4>
+              <p>A professional hospitality website designed to showcase hotel facilities, accommodation offerings and essential information while providing visitors with a convenient browsing experience.</p>
+              <ul class="tags" aria-label="Project tags"><li>Hotel Website</li><li>Hospitality</li><li>Responsive Design</li><li>Business Website</li></ul>
+              <a class="btn btn-primary btn-sm work-link" href="https://mamta-international.hrishabkumarpandey022.workers.dev/" target="_blank" rel="noopener noreferrer" aria-label="View Mamta International live website (opens in a new tab)">View Live Website <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+          </article>
+        </div>
+        <p class="work-note">Live demonstration websites designed and built by Ankit Builds for local businesses. They are shown as examples of our work, not as paid client commissions.</p>
+
+        <h3 class="sub-head">Client platform work</h3>
+        <article class="case spotlight" data-reveal>
+          <div class="case-media">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>infinityinterns.com</span></div>
+              <img src="assets/img/infinity-interns.webp" width="1200" height="624" alt="Infinity Interns internship programme homepage" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="case-body">
+            <p class="meta"><span class="label label-live">Client project · Live</span><span>Education platform</span></p>
+            <h4>Infinity Interns</h4>
+            <p>The business had a live platform and a previous developer it could no longer rely on. I took over, secured it and now maintain it.</p>
+            <ul class="checks">
+              <li>Server audit, access clean-up and credential rotation without downtime</li>
+              <li>Automated deployments (CI/CD) so updates go live safely</li>
+              <li>Ongoing maintenance as the sole developer</li>
+            </ul>
+            <a class="btn btn-outline btn-sm" href="https://infinityinterns.com" target="_blank" rel="noopener noreferrer">Visit live site <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+          </div>
+        </article>
+
+
+        <h3 class="sub-head">Applications &amp; technical projects</h3>
+        <div class="app-grid">
+          <article class="app-card" data-reveal style="--i:0">
+            <div class="app-media"><img src="assets/img/consnow.webp" width="400" height="895" alt="Consnow app showing a friend's activity status" loading="lazy" decoding="async"></div>
+            <div class="app-body">
+              <p class="meta"><span class="label">Co-built product</span><span>Android · NestJS</span></p>
+              <h4>Consnow</h4>
+              <p>Social app that shows close friends whether you're awake, active or offline. I lead the Android app and backend.</p>
+              <div class="link-row">
+                <a href="https://ankitcodeshub.github.io/Ankit-Pandey-Portfolio/consnow.apk" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>APK</a>
+                <a href="https://github.com/AnkitCodesHub/consnow-backend" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="app-card" data-reveal style="--i:1">
+            <div class="app-media"><img src="assets/img/smart-dnd.webp" width="400" height="895" alt="Smart DND app with auto-reply and status settings" loading="lazy" decoding="async"></div>
+            <div class="app-body">
+              <p class="meta"><span class="label">Personal project</span><span>Android · Kotlin</span></p>
+              <h4>Smart DND Auto Responder</h4>
+              <p>Set your status to studying, sleeping, driving or in a meeting and it auto-replies and syncs Do Not Disturb.</p>
+              <div class="link-row">
+                <a href="https://ankitcodeshub.github.io/Ankit-Pandey-Portfolio/smartdnd.apk" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>APK</a>
+                <a href="https://github.com/AnkitCodesHub/smartDND" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="app-card" data-reveal style="--i:2">
+            <div class="app-media vault" aria-hidden="true">
+              <div class="vault-box"><b>PassOP vault</b><span>github.com<em>••••••••••</em></span><span>mail.google.com<em>••••••••</em></span><span>linkedin.com<em>•••••••••••</em></span></div>
+            </div>
+            <div class="app-body">
+              <p class="meta"><span class="label">Personal project</span><span>React · Node · MongoDB</span></p>
+              <h4>PassOP</h4>
+              <p>Password manager that stores credentials with built-in encryption.</p>
+              <div class="link-row">
+                <a href="https://passop-mongo-zrll.onrender.com" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>Live demo</a>
+                <a href="https://github.com/AnkitCodesHub/passop-mongo" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cloud" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">How it works</p>
+          <h2 id="process-title">From first conversation to launch</h2>
+        </div>
+        <ol class="timeline">
+          <li data-reveal style="--i:0"><span class="step">1</span><h3>Consultation</h3><p>Understand your business and requirements.</p></li>
+          <li data-reveal style="--i:1"><span class="step">2</span><h3>Planning</h3><p>Agree on scope, deliverables and quotation.</p></li>
+          <li data-reveal style="--i:2"><span class="step">3</span><h3>Design</h3><p>Create the structure and visual direction for your approval.</p></li>
+          <li data-reveal style="--i:3"><span class="step">4</span><h3>Development</h3><p>Build, test and optimise the website.</p></li>
+          <li data-reveal style="--i:4"><span class="step">5</span><h3>Launch</h3><p>Deploy and hand over the completed project.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="why" aria-labelledby="why-title">
+      <div class="container why-grid">
+        <div class="section-head">
+          <p class="kicker">Why Ankit Builds</p>
+          <h2 id="why-title">A studio that works directly with you</h2>
+          <p>You talk to the person designing and building your website. No account managers, no hand-offs.</p>
+        </div>
+        <ul class="why-list">
+          <li data-reveal style="--i:0"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><div><h3>Direct communication</h3><p>Talk straight to the developer on WhatsApp, phone or email.</p></div></li>
+          <li data-reveal style="--i:1"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><div><h3>Tailored to your business</h3><p>Built around your customers, not a generic template.</p></div></li>
+          <li data-reveal style="--i:2"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><div><h3>Mobile-first</h3><p>Designed for the phones your customers actually use.</p></div></li>
+          <li data-reveal style="--i:3"><svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg><div><h3>Transparent starting prices</h3><p>Know the budget range before you even get in touch.</p></div></li>
+          <li data-reveal style="--i:4"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><div><h3>Fast and lightweight</h3><p>Performance-conscious builds that load quickly on mobile data.</p></div></li>
+          <li data-reveal style="--i:5"><svg class="icon" aria-hidden="true"><use href="#i-tool"/></svg><div><h3>Support during and after delivery</h3><p>Help with fixes and updates, according to the agreed scope.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section dark" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-photo" data-reveal>
+          <img src="assets/img/ankit.webp" width="622" height="800" alt="Ankit Pandey, founder of Ankit Builds" loading="lazy" decoding="async">
+        </div>
+        <div class="about-copy">
+          <p class="kicker">About</p>
+          <h2 id="about-title">Hi, I'm Ankit.</h2>
+          <p>I'm Ankit, an independent developer helping businesses establish a professional digital presence.</p>
+          <p>I combine development and design to build websites and digital solutions that are practical, user-friendly and tailored to business requirements.</p>
+          <p>From understanding your requirements to designing, developing and launching your website, I work directly with you throughout the process.</p>
+          <div class="capabilities">
+            <p>Technical capabilities</p>
+            <ul>
+              <li>UI/UX design</li><li>HTML, CSS, JavaScript</li><li>React</li><li>Node.js &amp; Express</li><li>NestJS</li><li>Laravel / PHP</li><li>MongoDB, PostgreSQL, MySQL</li><li>Android (Kotlin)</li><li>CI/CD &amp; deployment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="section-head">
+          <p class="kicker">FAQ</p>
+          <h2 id="faq-title">Questions business owners ask</h2>
+          <p>Something else on your mind? <a href="#contact">Get in touch</a> and ask directly.</p>
+        </div>
+        <div class="faq-list">
+          <details name="faq">
+            <summary>How much does a business website cost?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Websites start at ₹4,999 (Starter), ₹9,999 (Professional) and ₹14,999 (Advanced with booking or ordering). The final price depends on pages, features and integrations, and you get a written quotation before work starts.</p>
+          </details>
+          <details name="faq">
+            <summary>How long does website development take?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>It depends on the scope and how quickly content (text, photos, logo) is ready. Smaller websites usually take a few weeks; booking or ordering projects take longer. The timeline is agreed in writing in your quotation.</p>
+          </details>
+          <details name="faq">
+            <summary>Are domain and hosting charges included?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>No. Domain registration, hosting and other third-party services are paid separately at actual cost. I can help you choose and set them up.</p>
+          </details>
+          <details name="faq">
+            <summary>Can I request custom website features?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. Tell me what you need during the consultation, and custom features are included in your quotation.</p>
+          </details>
+          <details name="faq">
+            <summary>Will the website work on mobile devices?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. Every website is designed mobile-first and tested on phones, tablets and desktops.</p>
+          </details>
+          <details name="faq">
+            <summary>Can customers contact my business through WhatsApp?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. WhatsApp integration is included in every package, so customers can message you with one tap, with a ready-written enquiry where useful.</p>
+          </details>
+          <details name="faq">
+            <summary>Do you provide website maintenance?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. Support after launch is available according to the agreed scope, and ongoing maintenance can be arranged as a monthly plan quoted per website.</p>
+          </details>
+          <details name="faq">
+            <summary>Can you integrate online payments?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. Payment gateway integration is available with the Advanced package. Gateway providers charge their own transaction fees separately.</p>
+          </details>
+          <details name="faq">
+            <summary>Do you provide social media management?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. Instagram and Facebook management, creatives, reels and a monthly report. It's priced by quotation after understanding your business and posting needs.</p>
+          </details>
+          <details name="faq">
+            <summary>How do I start a project?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Send a message or fill in the enquiry form below. We'll have a short consultation, then you'll receive a quotation with scope and timeline.</p>
+          </details>
+          <details name="faq">
+            <summary>What is the payment process?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>The price is agreed before work starts. Usually 50% is paid upfront to begin and the remaining 50% before launch.</p>
+          </details>
+          <details name="faq">
+            <summary>Will I own my website and domain?<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Yes. The domain is registered in your name, and once the project is paid in full, the website and its accounts are yours.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact dark" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="kicker">Contact</p>
+          <h2 id="contact-title">Let's Build Something for Your Business.</h2>
+          <p>Tell us about your business and what you want to achieve. We'll discuss your requirements and suggest a suitable digital solution.</p>
+          <div class="btn-row contact-actions">
+            <a class="btn btn-primary" href="#contact" data-wa="consult"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Chat on WhatsApp</a>
+            <a class="btn btn-outline-light" href="#contact" data-call><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg>Call Now</a>
+          </div>
+          <ul class="contact-links">
+            <li><a href="#contact" data-call><svg class="icon" aria-hidden="true"><use href="#i-call"/></svg><span><strong>Phone &amp; WhatsApp</strong><span data-phone-label></span></span></a></li>
+            <li><a href="mailto:ankitraj5309@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><strong>Email</strong>ankitraj5309@gmail.com</span></a></li>
+            <li><a href="https://www.linkedin.com/in/ankitraj-pandey" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg><span><strong>LinkedIn</strong>ankitraj-pandey</span></a></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="enquiry-form" novalidate>
+          <h3>Send an enquiry on WhatsApp</h3>
+          <p class="form-intro">Fill in a few details and we'll open WhatsApp with your message ready to send.</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+              <p class="field-error" id="f-name-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-business">Business name <span class="optional">(optional)</span></label>
+              <input id="f-business" name="business" type="text" autocomplete="organization">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone number</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number" required>
+              <p class="field-error" id="f-phone-err"></p>
+            </div>
+            <div class="field">
+              <label for="f-service">Service interested in</label>
+              <select id="f-service" name="service" required>
+                <option value="">Select a service</option>
+                <option>Website Development</option>
+                <option>Website Redesign</option>
+                <option>Social Media Management</option>
+                <option>Complete Digital Presence</option>
+                <option>Other</option>
+              </select>
+              <p class="field-error" id="f-service-err"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-message">Brief project details <span class="optional">(optional)</span></label>
+            <textarea id="f-message" name="message" rows="4" placeholder="What does your business do, and what would you like your website or social media to achieve?"></textarea>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Continue on WhatsApp</button>
+          <p class="form-hint">You'll be taken to WhatsApp to review and send your enquiry. Nothing is sent until you tap send.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">AB</span><span class="brand-name">Ankit Builds</span></a>
+        <p>Websites, social media and digital presence for growing businesses in India.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="footer-title">Explore</p>
+        <ul><li><a href="#services">Services</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </nav>
+      <div>
+        <p class="footer-title">Services</p>
+        <ul><li><a href="#pricing">Website Development</a></li><li><a href="#services">Social Media Management</a></li><li><a href="#services">Complete Digital Presence</a></li></ul>
+      </div>
+      <div>
+        <p class="footer-title">Contact</p>
+        <ul>
+          <li><a href="mailto:ankitraj5309@gmail.com">ankitraj5309@gmail.com</a></li>
+          <li><a href="#contact" data-call data-phone-label></a></li>
+          <li><a href="#contact" data-wa="general">Chat on WhatsApp</a></li>
+          <li class="footer-social">
+            <a href="https://www.linkedin.com/in/ankitraj-pandey" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+            <a href="https://github.com/AnkitCodesHub" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </section>
-
-  <!-- FLOATING WHATSAPP (shown once WHATSAPP_NUMBER is set) -->
-  <a href="#" class="wa-float" data-whatsapp target="_blank" rel="noopener" aria-label="Chat on WhatsApp" hidden><i class="fab fa-whatsapp"></i></a>
-
-  <!-- FOOTER -->
-  <footer>
-    <p class="footer-copy">© 2026 Ankit Pandey · <a href="https://ankitcodeshub.github.io/Ankit-Pandey-Portfolio/" style="color:inherit">Developer portfolio</a></p>
-    <div class="footer-links">
-      <a href="https://github.com/AnkitCodesHub" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/ankitraj-pandey" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="tel:+916205323586" aria-label="Call +91-6205323586"><i class="fa fa-phone"></i></a>
-      <a href="mailto:ankitraj5309@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> Ankit Builds. All rights reserved.</p>
     </div>
   </footer>
 
-  <script>
-    // ===== HAMBURGER NAV =====
-    function toggleNav() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
-
-    // ===== LIGHTBOX =====
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('lightbox').addEventListener('click', function (e) {
-      if (e.target === this) closeLightbox();
-    });
-
-    // ===== SCROLL REVEAL =====
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          // Skill bar animation
-          if (e.target.classList.contains('skills-grid') || e.target.closest?.('.skills-grid')) {
-            animateBars();
-          }
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => observer.observe(el));
-
-    // Skill bars inside .reveal
-    const skillsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) animateBars();
-      });
-    }, { threshold: 0.3 });
-    const skillsGrid = document.querySelector('.skills-grid');
-    if (skillsGrid) skillsObserver.observe(skillsGrid);
-
-    function animateBars() {
-      document.querySelectorAll('.skill-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width;
-      });
-    }
-
-    // ===== FORM SUBMIT =====
-    function submitForm(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      const form = e.target;
-
-      // Get form values
-      const from_name = form.querySelectorAll('input')[0].value;
-      const from_email = form.querySelectorAll('input')[1].value;
-      const service = document.getElementById('enquiry-type').value;
-      const business = form.querySelectorAll('input')[2].value;
-      const subject = service + (business ? ' — ' + business : '');
-      const message = 'Service: ' + service + '\nBusiness / website: ' + (business || '-') + '\n\n' + form.querySelector('textarea').value;
-
-      // Show loading state
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      const templateParams = {
-        name: from_name,
-        email: from_email,
-        title: subject,
-        message: message
-      };
-
-      // Send message to Ankit
-      Promise.all([
-        emailjs.send("service_bugas7m", "template_2o1fnde", templateParams)
-      ]).then(function () {
-        btn.textContent = 'Message sent';
-        btn.classList.add('is-sent');
-        btn.disabled = false;
-        form.reset();
-        setTimeout(() => {
-          btn.textContent = 'Send message';
-          btn.classList.remove('is-sent');
-        }, 4000);
-      }).catch(function (error) {
-        const errMsg = error?.text || error?.message || JSON.stringify(error);
-        btn.textContent = 'Error: ' + errMsg;
-        btn.classList.add('is-error');
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.textContent = 'Send message';
-          btn.classList.remove('is-error');
-        }, 8000);
-        console.error('EmailJS full error:', JSON.stringify(error));
-      });
-    }
-
-    // ===== ENQUIRY SHORTCUTS + WHATSAPP =====
-    (function () {
-      // Add your WhatsApp number with country code, digits only (e.g. '919876543210').
-      // While this is empty, the WhatsApp buttons stay hidden.
-      const WHATSAPP_NUMBER = '';
-      const WHATSAPP_TEXT = "Hi Ankit, I found your website and I'd like to talk about a project.";
-
-      if (WHATSAPP_NUMBER) {
-        const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(WHATSAPP_TEXT);
-        document.querySelectorAll('[data-whatsapp]').forEach(a => {
-          a.href = url;
-          a.hidden = false;
-        });
-      }
-
-      const select = document.getElementById('enquiry-type');
-      const message = document.getElementById('enquiry-message');
-      const defaultPlaceholder = message.placeholder;
-      const placeholders = {
-        'Free website review': 'Paste your website link (or Instagram / Google listing) and tell me what you would like more of: calls, enquiries, bookings, sales.',
-        'Free 15-min call': 'Tell me a bit about your business and a couple of times that suit you for a quick call.'
-      };
-
-      function setType(type) {
-        const match = Array.from(select.options).find(o => o.value === type);
-        if (match) select.value = type;
-        message.placeholder = placeholders[select.value] || defaultPlaceholder;
-      }
-
-      select.addEventListener('change', () => setType(select.value));
-      document.querySelectorAll('[data-enquiry]').forEach(el => {
-        el.addEventListener('click', () => {
-          setType(el.dataset.enquiry);
-          document.getElementById('navLinks').classList.remove('open');
-        });
-      });
-    })();
-  </script>
-  <script>
-    /* Motion: spotlight cards, count up, active nav link */
-    (function () {
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      // Spotlight follows the cursor across each project card
-      // (ported from React Bits SpotlightCard, Copyright (c) 2026 David Haz, MIT + Commons Clause)
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('pointermove', e => {
-          const r = card.getBoundingClientRect();
-          card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-          card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        });
-      });
-
-      // Numbers count up once when they scroll into view
-      // (ported from React Bits CountUp, Copyright (c) 2026 David Haz, MIT + Commons Clause)
-      const counters = document.querySelectorAll('[data-count]');
-      const countObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          countObserver.unobserve(entry.target);
-          const el = entry.target;
-          const end = Number(el.dataset.count);
-          if (reduced) { el.textContent = end; return; }
-          const duration = 900;
-          const start = performance.now();
-          const ease = t => 1 - Math.pow(1 - t, 3);
-          setTimeout(() => { el.textContent = end; }, duration + 100);
-          (function frame(now) {
-            const t = Math.min(1, (now - start) / duration);
-            el.textContent = Math.round(end * ease(t));
-            if (t < 1) requestAnimationFrame(frame);
-          })(start);
-        });
-      }, { threshold: 0.6 });
-      counters.forEach(el => countObserver.observe(el));
-
-      // The nav link for the section on screen gets an underline
-      const links = new Map();
-      document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)').forEach(a => {
-        links.set(a.getAttribute('href').slice(1), a);
-      });
-      const sectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          links.forEach(a => a.classList.remove('is-active'));
-          const link = links.get(entry.target.id);
-          if (link) link.classList.add('is-active');
-        });
-      }, { rootMargin: '-45% 0px -50% 0px' });
-      document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
-    })();
-  </script>
-  <script>
-    /* Light and dark mode toggle */
-    (function () {
-      const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-      const media = window.matchMedia('(prefers-color-scheme: light)');
-
-      function apply(theme, animate) {
-        if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          root.classList.add('theme-switching');
-          setTimeout(() => root.classList.remove('theme-switching'), 300);
-        }
-        root.dataset.theme = theme;
-        btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      }
-
-      apply(root.dataset.theme, false);
-
-      btn.addEventListener('click', () => {
-        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-        apply(next, true);
-        try { localStorage.setItem('theme', next); } catch (e) {}
-      });
-
-      // Follow the system setting until the visitor picks a theme themselves
-      media.addEventListener('change', e => {
-        let saved = null;
-        try { saved = localStorage.getItem('theme'); } catch (err) {}
-        if (!saved) apply(e.matches ? 'light' : 'dark', true);
-      });
-    })();
-  </script>
-  <script src="splash-cursor.js"></script>
-  <script>
-    /* Hero background: fluid follows the cursor (skipped for reduced motion) */
-    (function () {
-      const el = document.querySelector('#hero .splash-cursor');
-      if (!el || !window.SplashCursor) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.remove(); return; }
-      const root = document.documentElement;
-      const small = window.matchMedia('(max-width: 640px)').matches;
-      const fluid = window.SplashCursor.mount(el, {
-        theme: root.dataset.theme === 'light' ? 'light' : 'dark',
-        quality: small ? 'low' : 'high'
-      });
-      new MutationObserver(() => fluid.setTheme(root.dataset.theme)).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-    })();
-  </script>
-  <script src="scroll-stack.js"></script>
-  <script>
-    /* How it works: steps stack up as the page scrolls */
-    (function () {
-      const el = document.querySelector('#process .scroll-stack');
-      if (!el || !window.ScrollStack) return;
-      const small = window.matchMedia('(max-width: 640px)').matches;
-      window.ScrollStack.mount(el, {
-        itemDistance: small ? 80 : 120,
-        itemStackDistance: small ? 16 : 26,
-        stackPosition: small ? '12%' : '16%',
-        itemScale: 0.04,
-        baseScale: 0.84,
-        dimAmount: 0.22,
-        blurAmount: small ? 0 : 0.6,
-        tiltAmount: 6,
-        holdDistance: 160
-      });
-    })();
-  </script>
+  <a class="wa-float" href="#contact" data-wa="general" aria-label="Chat on WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
 </body>
-
 </html>

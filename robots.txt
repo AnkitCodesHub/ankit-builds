@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ankitcodeshub.github.io/ankit-builds/sitemap.xml
